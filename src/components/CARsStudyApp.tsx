@@ -169,7 +169,7 @@ export default function CARsStudyApp() {
           question,
           options: shuffledOptions,
           correctAnswer: newCorrectAnswer,
-          id: parsed.length // usa comprimento atual como ID
+          id: parsed.length
         });
       }
     });
@@ -688,11 +688,15 @@ export default function CARsStudyApp() {
                         Random questions - Full test simulation
                       </p>
 
-                      <div className="flex gap-2">
+                      {/* Botões 25 / 50 questions bonitinhos */}
+                      <div className="mt-4 flex items-center justify-center gap-3">
                         <Button
                           type="button"
-                          variant={testQuestionCount === 25 ? "default" : "outline"}
+                          variant={testQuestionCount === 25 ? 'default' : 'outline'}
                           size="sm"
+                          className={`px-6 py-2 rounded-full transition-all ${
+                            testQuestionCount === 25 ? 'shadow-md' : ''
+                          }`}
                           onClick={(e) => {
                             e.stopPropagation();
                             setTestQuestionCount(25);
@@ -700,10 +704,14 @@ export default function CARsStudyApp() {
                         >
                           25 questions
                         </Button>
+
                         <Button
                           type="button"
-                          variant={testQuestionCount === 50 ? "default" : "outline"}
+                          variant={testQuestionCount === 50 ? 'default' : 'outline'}
                           size="sm"
+                          className={`px-6 py-2 rounded-full transition-all ${
+                            testQuestionCount === 50 ? 'shadow-md' : ''
+                          }`}
                           onClick={(e) => {
                             e.stopPropagation();
                             setTestQuestionCount(50);
