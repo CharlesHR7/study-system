@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
@@ -38,18 +38,16 @@ export default function CARsStudyApp() {
   const [duplicatesRemoved, setDuplicatesRemoved] = useState(0);
   const [hasStoredQuestions, setHasStoredQuestions] = useState(false);
   const [allQuestions, setAllQuestions] = useState<Question[]>([]);
-  const [testQuestions, setTestQuestions] = useState<Question[]>([]);
   const [showSettings, setShowSettings] = useState(false);
 
-  // NOVO: quantidade de questões no Test Mode (25 ou 50)
+  // Quantidade de questões no Test Mode (25 ou 50)
   const [testQuestionCount, setTestQuestionCount] = useState<25 | 50>(50);
 
-  // NOVO: timer do Test Mode
+  // Timer do Test Mode
   const [timeLeft, setTimeLeft] = useState<number | null>(null);
   const [isTimerRunning, setIsTimerRunning] = useState(false);
 
   const getTestDurationSeconds = (questionCount: number) => {
-    // Ajuste se quiser outros tempos
     if (questionCount === 25) return 22 * 60; // 22 minutos
     return 45 * 60; // 45 minutos para 50 questões
   };
@@ -68,7 +66,7 @@ export default function CARsStudyApp() {
       return;
     }
 
-    const exportText = questionsToExport.map((q, index) => {
+    const exportText = questionsToExport.map((q) => {
       const lines = [
         `Q: ${q.question}`,
         `A. ${q.options.A}`,
@@ -76,7 +74,7 @@ export default function CARsStudyApp() {
         `C. ${q.options.C}`,
         `D. ${q.options.D}`,
         `Correct Answer: ${q.correctAnswer}`,
-        '' 
+        ''
       ];
       return lines.join('\n');
     }).join('\n');
@@ -93,7 +91,10 @@ export default function CARsStudyApp() {
     URL.revokeObjectURL(url);
   };
 
-  const shuffleOptions = (options: { A: string; B: string; C: string; D: string }, correctAnswer: 'A' | 'B' | 'C' | 'D') => {
+  const shuffleOptions = (
+    options: { A: string; B: string; C: string; D: string },
+    correctAnswer: 'A' | 'B' | 'C' | 'D'
+  ) => {
     const optionEntries = [
       { key: 'A', value: options.A },
       { key: 'B', value: options.B },
@@ -125,7 +126,7 @@ export default function CARsStudyApp() {
     const seenQuestions = new Set<string>();
     let duplicateCount = 0;
 
-    questionBlocks.forEach((block, index) => {
+    questionBlocks.forEach((block) => {
       const lines = block.split('\n').map(line => line.trim()).filter(line => line);
       
       if (lines.length < 6) return;
@@ -168,7 +169,7 @@ export default function CARsStudyApp() {
           question,
           options: shuffledOptions,
           correctAnswer: newCorrectAnswer,
-          id: index
+          id: parsed.length // usa comprimento atual como ID
         });
       }
     });
@@ -180,7 +181,7 @@ export default function CARsStudyApp() {
     return parsed;
   };
 
-  const handleFileUpload = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (!file) return;
 
@@ -214,7 +215,7 @@ export default function CARsStudyApp() {
     };
 
     reader.readAsText(file);
-  }, []);
+  };
 
   const handleAnswerSelect = (answer: string) => {
     setSelectedAnswer(answer);
@@ -295,16 +296,6 @@ export default function CARsStudyApp() {
     }
   };
 
-  const handleNext = () => {
-    if (currentQuestionIndex < questions.length - 1) {
-      setCurrentQuestionIndex(prev => prev + 1);
-      setSelectedAnswer('');
-      setShowFeedback(false);
-    } else {
-      setMode('results');
-    }
-  };
-
   const handleNextFlashcard = () => {
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(prev => prev + 1);
@@ -318,7 +309,6 @@ export default function CARsStudyApp() {
       const shuffled = [...allQuestions].sort(() => Math.random() - 0.5);
       const count = Math.min(testQuestionCount, allQuestions.length);
       const selected = shuffled.slice(0, count);
-      setTestQuestions(selected);
       setQuestions(selected);
 
       const duration = getTestDurationSeconds(count);
@@ -342,7 +332,6 @@ export default function CARsStudyApp() {
       const shuffled = [...allQuestions].sort(() => Math.random() - 0.5);
       const count = Math.min(testQuestionCount, allQuestions.length);
       const selected = shuffled.slice(0, count);
-      setTestQuestions(selected);
       setQuestions(selected);
       setCurrentQuestionIndex(0);
       setUserAnswers([]);
@@ -362,16 +351,6 @@ export default function CARsStudyApp() {
     setUserAnswers([]);
     setSelectedAnswer('');
     setShowFeedback(false);
-    setTimeLeft(null);
-    setIsTimerRunning(false);
-  };
-
-  const handleNewQuiz = () => {
-    setCurrentQuestionIndex(0);
-    setUserAnswers([]);
-    setSelectedAnswer('');
-    setShowFeedback(false);
-    setMode('upload');
     setTimeLeft(null);
     setIsTimerRunning(false);
   };
@@ -401,7 +380,6 @@ export default function CARsStudyApp() {
         const shuffled = [...allQuestions].sort(() => Math.random() - 0.5);
         const count = Math.min(testQuestionCount, allQuestions.length);
         const selected = shuffled.slice(0, count);
-        setTestQuestions(selected);
         setQuestions(selected);
 
         const duration = getTestDurationSeconds(count);
@@ -420,14 +398,13 @@ export default function CARsStudyApp() {
     }
   };
 
-  // Estudo: mudança de modo
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   React.useEffect(() => {
     if (allQuestions.length > 0 && mode === 'quiz') {
       if (studyMode === 'test') {
         const shuffled = [...allQuestions].sort(() => Math.random() - 0.5);
         const count = Math.min(testQuestionCount, allQuestions.length);
         const selected = shuffled.slice(0, count);
-        setTestQuestions(selected);
         setQuestions(selected);
         setCurrentQuestionIndex(0);
         setUserAnswers([]);
@@ -447,9 +424,8 @@ export default function CARsStudyApp() {
         setIsTimerRunning(false);
       }
     }
-  }, [studyMode]); // uso pessoal, então deixei simples
+  }, [studyMode]);
 
-  // NOVO: efeito do timer
   React.useEffect(() => {
     if (!isTimerRunning || timeLeft === null) return;
 
@@ -467,7 +443,6 @@ export default function CARsStudyApp() {
     return () => clearInterval(interval);
   }, [isTimerRunning, timeLeft]);
 
-  // Carrega resposta salva no Test Mode
   React.useEffect(() => {
     if (studyMode === 'test' && questions.length > 0) {
       const currentQuestion = questions[currentQuestionIndex];
@@ -476,7 +451,6 @@ export default function CARsStudyApp() {
     }
   }, [currentQuestionIndex, studyMode, questions, userAnswers]);
 
-  // Carrega do localStorage
   React.useEffect(() => {
     const storedQuestions = localStorage.getItem('studyQuestions');
     const storedFileName = localStorage.getItem('studyFileName');
@@ -714,7 +688,6 @@ export default function CARsStudyApp() {
                         Random questions - Full test simulation
                       </p>
 
-                      {/* NOVO: seleção 25 / 50 perguntas */}
                       <div className="flex gap-2">
                         <Button
                           type="button"
@@ -754,7 +727,6 @@ export default function CARsStudyApp() {
     const currentQuestion = questions[currentQuestionIndex];
     const progress = ((currentQuestionIndex + 1) / questions.length) * 100;
 
-    // Flash Card Mode
     if (studyMode === 'flashcard') {
       return (
         <div className="min-h-screen bg-gradient-to-br from-primary/5 via-background to-secondary/5 p-4 py-8">
@@ -849,7 +821,7 @@ export default function CARsStudyApp() {
       );
     }
 
-    // Regular Quiz Modes (Practice and Test)
+    // Practice / Test mode
     return (
       <div className="min-h-screen bg-gradient-to-br from-primary/5 via-background to-secondary/5 p-4 py-8">
         <div className="max-w-4xl mx-auto space-y-6">
