@@ -1,13 +1,29 @@
 'use client';
 
 import React, { useState } from 'react';
+
+import part1Data from '../../data/cars/part1.json';
+import part2Data from '../../data/cars/part2.json';
+import part4Data from '../../data/cars/part4.json';
+import part5Data from '../../data/cars/part5.json';
+import part6Data from '../../data/cars/part6.json';
+import part7Data from '../../data/cars/part7.json';
+
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
-import { Upload, RefreshCw, Check, X, FileText, Brain, Trophy, BookOpen } from 'lucide-react';
+import { RefreshCw, Check, X, Brain, Trophy, BookOpen } from 'lucide-react';
 
 interface Question {
+  id: number;
   question: string;
   options: {
     A: string;
@@ -16,7 +32,10 @@ interface Question {
     D: string;
   };
   correctAnswer: 'A' | 'B' | 'C' | 'D';
-  id: number;
+  reference?: string;
+  source?: string;
+  explanation?: string;
+  category?: string;
 }
 
 interface UserAnswer {
@@ -25,31 +44,179 @@ interface UserAnswer {
   isCorrect: boolean;
 }
 
+// apenas Parts individuais (sem "all")
+type PartKey = 'part1' | 'part2' | 'part4' | 'part5' | 'part6' | 'part7';
+
+const PART_KEYS: PartKey[] = ['part1', 'part2', 'part4', 'part5', 'part6', 'part7'];
+
+// JSON cru de cada Part
+const RAW_PARTS: Record<PartKey, any[]> = {
+  part1: part1Data as any[],
+  part2: part2Data as any[],
+  part4: part4Data as any[],
+  part5: part5Data as any[],
+  part6: part6Data as any[],
+  part7: part7Data as any[],
+};
+
+// Rótulo de cada Part
+const PART_LABELS: Record<PartKey, string> = {
+  part1: 'CARs Part I – General Provisions',
+  part2: 'CARs Part II – Aircraft Identification & Registration',
+  part4: 'CARs Part IV – Personnel Licensing',
+  part5: 'CARs Part V – Airworthiness',
+  part6: 'CARs Part VI – General Operating & Flight Rules',
+  part7: 'CARs Part VII – Commercial Air Services',
+};
+
+// Título curto (linha de cima)
+const PART_SHORT_TITLES: Record<PartKey, string> = {
+  part1: 'Part I',
+  part2: 'Part II',
+  part4: 'Part IV',
+  part5: 'Part V',
+  part6: 'Part VI',
+  part7: 'Part VII',
+};
+
+function getPartQuestionCount(partId: PartKey): number {
+  const data = RAW_PARTS[partId] ?? [];
+  return data.length;
+}
+
+function getAllPartsQuestionCount(): number {
+  return PART_KEYS.reduce((sum, pid) => sum + getPartQuestionCount(pid), 0);
+}
+
+// Constrói deck combinando todas as Parts selecionadas
+function buildDeckForParts(parts: PartKey[]): Question[] {
+  let runningId = 1;
+  const result: Question[] = [];
+
+  parts.forEach((pid) => {
+    const data = RAW_PARTS[pid] ?? [];
+    data.forEach((q: any) => {
+      result.push({
+        id: runningId++,
+        question: q.question,
+        options: q.options,
+        correctAnswer: (q.correctAnswer ?? q.correct_answer) as
+          | 'A'
+          | 'B'
+          | 'C'
+          | 'D',
+        reference: q.reference,
+        source: q.source,
+        explanation: q.explanation,
+        category: q.category,
+      });
+    });
+  });
+
+  return result;
+}
+
+// Label bonito para o deck atual (cabeçalho/resultados)
+function getDeckLabel(parts: PartKey[]): string {
+  if (parts.length === PART_KEYS.length) return 'CARs – All Parts (Full Deck)';
+  if (parts.length === 1) return PART_LABELS[parts[0]];
+
+  const shortNames = parts.map((p) => PART_SHORT_TITLES[p]).join(', ');
+  return `CARs – ${shortNames}`;
+}
+
 export default function CARsStudyApp() {
-  const [questions, setQuestions] = useState<Question[]>([]);
+  // Começa só com Part I selecionada
+  const [selectedParts, setSelectedParts] = useState<PartKey[]>(['part1']);
+  const [showCarsParts, setShowCarsParts] = useState(false);
+
+  const [allQuestions, setAllQuestions] = useState<Question[]>(
+    () => buildDeckForParts(['part1']),
+  );
+  const [questions, setQuestions] = useState<Question[]>(() =>
+    buildDeckForParts(['part1']),
+  );
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [userAnswers, setUserAnswers] = useState<UserAnswer[]>([]);
   const [selectedAnswer, setSelectedAnswer] = useState<string>('');
-  const [mode, setMode] = useState<'upload' | 'quiz' | 'results'>('upload');
-  const [studyMode, setStudyMode] = useState<'practice' | 'test' | 'flashcard'>('flashcard');
+  const [mode, setMode] = useState<'home' | 'quiz' | 'results'>('home');
+  const [studyMode, setStudyMode] = useState<'flashcard' | 'practice' | 'test'>(
+    'flashcard',
+  );
   const [showFeedback, setShowFeedback] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
-  const [fileName, setFileName] = useState('');
-  const [duplicatesRemoved, setDuplicatesRemoved] = useState(0);
-  const [hasStoredQuestions, setHasStoredQuestions] = useState(false);
-  const [allQuestions, setAllQuestions] = useState<Question[]>([]);
-  const [showSettings, setShowSettings] = useState(false);
 
-  // Quantidade de questões no Test Mode (25 ou 50)
-  const [testQuestionCount, setTestQuestionCount] = useState<25 | 50>(50);
+  const [testQuestionCount] = useState<25 | 50>(50);
 
-  // Timer do Test Mode
   const [timeLeft, setTimeLeft] = useState<number | null>(null);
   const [isTimerRunning, setIsTimerRunning] = useState(false);
 
   const getTestDurationSeconds = (questionCount: number) => {
-    if (questionCount === 25) return 22 * 60; // 22 minutos
-    return 45 * 60; // 45 minutos para 50 questões
+    if (questionCount === 25) return 22 * 60;
+    return 45 * 60;
+  };
+
+  const applySelectedParts = (parts: PartKey[]) => {
+  // garante pelo menos 1 selecionada
+  const safeParts: PartKey[] =
+    parts.length === 0 ? (['part1'] as PartKey[]) : parts;
+
+  const deck = buildDeckForParts(safeParts);
+
+  setSelectedParts(safeParts);
+  setAllQuestions(deck);
+  setQuestions(deck);
+
+  setCurrentQuestionIndex(0);
+  setUserAnswers([]);
+  setSelectedAnswer('');
+  setShowFeedback(false);
+  setTimeLeft(null);
+  setIsTimerRunning(false);
+  setMode('home');
+};
+
+
+  // toggle de uma Part (multi-select)
+  const togglePart = (pid: PartKey) => {
+    applySelectedParts(
+      selectedParts.includes(pid)
+        ? selectedParts.filter((p) => p !== pid)
+        : [...selectedParts, pid],
+    );
+  };
+
+  // seleciona TODAS as Parts
+  const handleSelectAllParts = () => {
+    applySelectedParts(PART_KEYS);
+  };
+
+  const handleStartQuiz = (forcedMode?: 'flashcard' | 'practice' | 'test') => {
+    const modeToUse = forcedMode ?? studyMode;
+
+    setStudyMode(modeToUse);
+    setCurrentQuestionIndex(0);
+    setUserAnswers([]);
+    setSelectedAnswer('');
+    setShowFeedback(false);
+
+    if (modeToUse === 'test') {
+      const shuffled = [...allQuestions].sort(() => Math.random() - 0.5);
+      const count = Math.min(testQuestionCount, allQuestions.length);
+      const selected = shuffled.slice(0, count);
+
+      setQuestions(selected);
+
+      const duration = getTestDurationSeconds(count);
+      setTimeLeft(duration);
+      setIsTimerRunning(true);
+    } else {
+      setQuestions(allQuestions);
+      setTimeLeft(null);
+      setIsTimerRunning(false);
+    }
+
+    setMode('quiz');
   };
 
   const formatTime = (seconds: number) => {
@@ -58,249 +225,85 @@ export default function CARsStudyApp() {
     return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
   };
 
-  const handleExportQuestions = () => {
-    const questionsToExport = allQuestions.length > 0 ? allQuestions : questions;
-    
-    if (questionsToExport.length === 0) {
-      alert('Não há questões para exportar.');
-      return;
-    }
-
-    const exportText = questionsToExport.map((q) => {
-      const lines = [
-        `Q: ${q.question}`,
-        `A. ${q.options.A}`,
-        `B. ${q.options.B}`,
-        `C. ${q.options.C}`,
-        `D. ${q.options.D}`,
-        `Correct Answer: ${q.correctAnswer}`,
-        ''
-      ];
-      return lines.join('\n');
-    }).join('\n');
-
-    const blob = new Blob([exportText], { type: 'text/plain;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    const exportFileName = fileName.replace('.txt', '') + '_sem_duplicadas.txt';
-    link.download = exportFileName;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
-  };
-
-  const shuffleOptions = (
-    options: { A: string; B: string; C: string; D: string },
-    correctAnswer: 'A' | 'B' | 'C' | 'D'
-  ) => {
-    const optionEntries = [
-      { key: 'A', value: options.A },
-      { key: 'B', value: options.B },
-      { key: 'C', value: options.C },
-      { key: 'D', value: options.D }
-    ];
-
-    for (let i = optionEntries.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [optionEntries[i], optionEntries[j]] = [optionEntries[j], optionEntries[i]];
-    }
-
-    const newCorrectIndex = optionEntries.findIndex(entry => entry.key === correctAnswer);
-    const newCorrectAnswer = ['A', 'B', 'C', 'D'][newCorrectIndex] as 'A' | 'B' | 'C' | 'D';
-
-    const shuffledOptions = {
-      A: optionEntries[0].value,
-      B: optionEntries[1].value,
-      C: optionEntries[2].value,
-      D: optionEntries[3].value
-    };
-
-    return { shuffledOptions, newCorrectAnswer };
-  };
-
-  const parseQuestions = (text: string): Question[] => {
-    const parsed: Question[] = [];
-    const questionBlocks = text.split(/\n\s*\n/).filter(block => block.trim());
-    const seenQuestions = new Set<string>();
-    let duplicateCount = 0;
-
-    questionBlocks.forEach((block) => {
-      const lines = block.split('\n').map(line => line.trim()).filter(line => line);
-      
-      if (lines.length < 6) return;
-
-      const questionLine = lines.find(line => line.startsWith('Q:'));
-      const correctLine = lines.find(line => line.toLowerCase().startsWith('correct answer:'));
-      
-      if (!questionLine || !correctLine) return;
-
-      const question = questionLine.replace(/^Q:\s*/, '').trim();
-      const correctAnswer = correctLine.replace(/^correct answer:\s*/i, '').trim().toUpperCase() as 'A' | 'B' | 'C' | 'D';
-
-      const options = {
-        A: '',
-        B: '',
-        C: '',
-        D: ''
-      };
-
-      lines.forEach(line => {
-        if (line.match(/^A\.\s/)) options.A = line.replace(/^A\.\s*/, '').trim();
-        if (line.match(/^B\.\s/)) options.B = line.replace(/^B\.\s*/, '').trim();
-        if (line.match(/^C\.\s/)) options.C = line.replace(/^C\.\s*/, '').trim();
-        if (line.match(/^D\.\s/)) options.D = line.replace(/^D\.\s*/, '').trim();
-      });
-
-      if (options.A && options.B && options.C && options.D) {
-        const questionKey = `${question.toLowerCase()}|${options.A}|${options.B}|${options.C}|${options.D}`;
-        
-        if (seenQuestions.has(questionKey)) {
-          duplicateCount++;
-          return;
-        }
-        
-        seenQuestions.add(questionKey);
-
-        const { shuffledOptions, newCorrectAnswer } = shuffleOptions(options, correctAnswer);
-
-        parsed.push({
-          question,
-          options: shuffledOptions,
-          correctAnswer: newCorrectAnswer,
-          id: parsed.length
-        });
-      }
-    });
-
-    if (duplicateCount > 0) {
-      alert(`Encontradas ${duplicateCount} questão(ões) duplicada(s). Elas foram removidas automaticamente.`);
-    }
-
-    return parsed;
-  };
-
-  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (!file) return;
-
-    setFileName(file.name);
-    const reader = new FileReader();
-
-    reader.onload = (e) => {
-      const text = e.target?.result as string;
-      const questionBlocks = text.split(/\n\s*\n/).filter(block => block.trim());
-      const totalQuestions = questionBlocks.length;
-      
-      const parsedQuestions = parseQuestions(text);
-      const duplicates = totalQuestions - parsedQuestions.length;
-      
-      if (parsedQuestions.length > 0) {
-        setAllQuestions(parsedQuestions);
-        setQuestions(parsedQuestions);
-        setDuplicatesRemoved(duplicates);
-        setMode('quiz');
-        setCurrentQuestionIndex(0);
-        setUserAnswers([]);
-        setSelectedAnswer('');
-        
-        localStorage.setItem('studyQuestions', JSON.stringify(parsedQuestions));
-        localStorage.setItem('studyFileName', file.name);
-        localStorage.setItem('studyDuplicates', duplicates.toString());
-        setHasStoredQuestions(true);
-      } else {
-        alert('Não foi possível encontrar questões no arquivo. Verifique o formato.');
-      }
-    };
-
-    reader.readAsText(file);
-  };
-
   const handleAnswerSelect = (answer: string) => {
     setSelectedAnswer(answer);
-    
+
     if (studyMode === 'test') {
       const currentQuestion = questions[currentQuestionIndex];
       const correct = answer === currentQuestion.correctAnswer;
-      
-      const existingAnswerIndex = userAnswers.findIndex(a => a.questionId === currentQuestion.id);
-      
-      const newAnswer: UserAnswer = {
-        questionId: currentQuestion.id,
-        selectedAnswer: answer as 'A' | 'B' | 'C' | 'D',
-        isCorrect: correct
-      };
-      
-      if (existingAnswerIndex >= 0) {
-        setUserAnswers(prev => {
-          const updated = [...prev];
-          updated[existingAnswerIndex] = newAnswer;
-          return updated;
-        });
-      } else {
-        setUserAnswers(prev => [...prev, newAnswer]);
+
+      const existingIndex = userAnswers.findIndex(
+        (a) => a.questionId === currentQuestion.id,
+      );
+
+      const updatedAnswers =
+        existingIndex >= 0
+          ? userAnswers.map((a, idx) =>
+              idx === existingIndex
+                ? {
+                    ...a,
+                    selectedAnswer: answer as 'A' | 'B' | 'C' | 'D',
+                    isCorrect: correct,
+                  }
+                : a,
+            )
+          : [
+              ...userAnswers,
+              {
+                questionId: currentQuestion.id,
+                selectedAnswer: answer as 'A' | 'B' | 'C' | 'D',
+                isCorrect: correct,
+              },
+            ];
+
+      setUserAnswers(updatedAnswers);
+
+      if (updatedAnswers.length === questions.length) {
+        setTimeout(() => {
+          setMode('results');
+          setIsTimerRunning(false);
+        }, 300);
       }
-    }
-    
-    setShowFeedback(false);
-  };
-
-  const handleGotIt = () => {
-    if (currentQuestionIndex < questions.length - 1) {
-      setCurrentQuestionIndex(prev => prev + 1);
-      setSelectedAnswer('');
-      setShowFeedback(false);
     } else {
-      setMode('results');
-    }
-  };
-
-  const handleSubmitAnswer = () => {
-    if (studyMode === 'practice') {
-      if (!selectedAnswer) return;
-
       const currentQuestion = questions[currentQuestionIndex];
-      const correct = selectedAnswer === currentQuestion.correctAnswer;
-      
-      const answer: UserAnswer = {
-        questionId: currentQuestion.id,
-        selectedAnswer: selectedAnswer as 'A' | 'B' | 'C' | 'D',
-        isCorrect: correct
-      };
-
-      setUserAnswers(prev => [...prev, answer]);
+      const correct = answer === currentQuestion.correctAnswer;
       setIsCorrect(correct);
       setShowFeedback(true);
-      
-      if (correct) {
-        setTimeout(() => {
-          if (currentQuestionIndex < questions.length - 1) {
-            setCurrentQuestionIndex(prev => prev + 1);
-            setSelectedAnswer('');
-            setShowFeedback(false);
-          } else {
-            setMode('results');
-          }
-        }, 2000);
+    }
+  };
+
+  const handleNextQuestion = () => {
+    if (studyMode === 'flashcard') {
+      setShowFeedback(false);
+    }
+
+    if (currentQuestionIndex < questions.length - 1) {
+      setCurrentQuestionIndex((prev) => prev + 1);
+      setSelectedAnswer('');
+
+      if (studyMode !== 'test') {
+        setShowFeedback(false);
       }
     } else {
-      if (currentQuestionIndex < questions.length - 1) {
-        setCurrentQuestionIndex(prev => prev + 1);
-        const nextQuestion = questions[currentQuestionIndex + 1];
-        const savedAnswer = userAnswers.find(a => a.questionId === nextQuestion.id);
-        setSelectedAnswer(savedAnswer?.selectedAnswer || '');
-      } else {
+      if (studyMode === 'test') {
         setMode('results');
+        setIsTimerRunning(false);
+      } else {
+        setCurrentQuestionIndex(0);
+        setSelectedAnswer('');
+        setShowFeedback(false);
       }
     }
   };
 
-  const handleNextFlashcard = () => {
-    if (currentQuestionIndex < questions.length - 1) {
-      setCurrentQuestionIndex(prev => prev + 1);
-    } else {
-      handleGoHome();
+  const handlePreviousQuestion = () => {
+    if (currentQuestionIndex > 0) {
+      setCurrentQuestionIndex((prev) => prev - 1);
+      setShowFeedback(false);
+
+      if (studyMode !== 'test') {
+        setSelectedAnswer('');
+      }
     }
   };
 
@@ -315,11 +318,11 @@ export default function CARsStudyApp() {
       setTimeLeft(duration);
       setIsTimerRunning(true);
     } else {
+      setQuestions(allQuestions);
       setTimeLeft(null);
       setIsTimerRunning(false);
-      setQuestions(allQuestions);
     }
-    
+
     setCurrentQuestionIndex(0);
     setUserAnswers([]);
     setSelectedAnswer('');
@@ -332,21 +335,22 @@ export default function CARsStudyApp() {
       const shuffled = [...allQuestions].sort(() => Math.random() - 0.5);
       const count = Math.min(testQuestionCount, allQuestions.length);
       const selected = shuffled.slice(0, count);
+
       setQuestions(selected);
       setCurrentQuestionIndex(0);
       setUserAnswers([]);
       setSelectedAnswer('');
       setShowFeedback(false);
-      setMode('quiz');
 
       const duration = getTestDurationSeconds(count);
       setTimeLeft(duration);
       setIsTimerRunning(true);
+      setMode('quiz');
     }
   };
 
   const handleGoHome = () => {
-    setMode('upload');
+    setMode('home');
     setCurrentQuestionIndex(0);
     setUserAnswers([]);
     setSelectedAnswer('');
@@ -354,77 +358,6 @@ export default function CARsStudyApp() {
     setTimeLeft(null);
     setIsTimerRunning(false);
   };
-
-  const handleClearMemory = () => {
-    if (confirm('Tem certeza que deseja apagar todas as questões salvas? Esta ação não pode ser desfeita.')) {
-      localStorage.removeItem('studyQuestions');
-      localStorage.removeItem('studyFileName');
-      localStorage.removeItem('studyDuplicates');
-      setQuestions([]);
-      setFileName('');
-      setDuplicatesRemoved(0);
-      setHasStoredQuestions(false);
-      setCurrentQuestionIndex(0);
-      setUserAnswers([]);
-      setSelectedAnswer('');
-      setShowFeedback(false);
-      setMode('upload');
-      setTimeLeft(null);
-      setIsTimerRunning(false);
-    }
-  };
-
-  const handleContinueStudying = () => {
-    if (allQuestions.length > 0) {
-      if (studyMode === 'test') {
-        const shuffled = [...allQuestions].sort(() => Math.random() - 0.5);
-        const count = Math.min(testQuestionCount, allQuestions.length);
-        const selected = shuffled.slice(0, count);
-        setQuestions(selected);
-
-        const duration = getTestDurationSeconds(count);
-        setTimeLeft(duration);
-        setIsTimerRunning(true);
-      } else {
-        setQuestions(allQuestions);
-        setTimeLeft(null);
-        setIsTimerRunning(false);
-      }
-      setMode('quiz');
-      setCurrentQuestionIndex(0);
-      setUserAnswers([]);
-      setSelectedAnswer('');
-      setShowFeedback(false);
-    }
-  };
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  React.useEffect(() => {
-    if (allQuestions.length > 0 && mode === 'quiz') {
-      if (studyMode === 'test') {
-        const shuffled = [...allQuestions].sort(() => Math.random() - 0.5);
-        const count = Math.min(testQuestionCount, allQuestions.length);
-        const selected = shuffled.slice(0, count);
-        setQuestions(selected);
-        setCurrentQuestionIndex(0);
-        setUserAnswers([]);
-        setSelectedAnswer('');
-        setShowFeedback(false);
-
-        const duration = getTestDurationSeconds(count);
-        setTimeLeft(duration);
-        setIsTimerRunning(true);
-      } else {
-        setQuestions(allQuestions);
-        setCurrentQuestionIndex(0);
-        setUserAnswers([]);
-        setSelectedAnswer('');
-        setShowFeedback(false);
-        setTimeLeft(null);
-        setIsTimerRunning(false);
-      }
-    }
-  }, [studyMode]);
 
   React.useEffect(() => {
     if (!isTimerRunning || timeLeft === null) return;
@@ -437,7 +370,7 @@ export default function CARsStudyApp() {
     }
 
     const interval = setInterval(() => {
-      setTimeLeft(prev => (prev !== null ? prev - 1 : prev));
+      setTimeLeft((prev) => (prev !== null ? prev - 1 : prev));
     }, 1000);
 
     return () => clearInterval(interval);
@@ -446,291 +379,211 @@ export default function CARsStudyApp() {
   React.useEffect(() => {
     if (studyMode === 'test' && questions.length > 0) {
       const currentQuestion = questions[currentQuestionIndex];
-      const savedAnswer = userAnswers.find(a => a.questionId === currentQuestion.id);
+      const savedAnswer = userAnswers.find(
+        (a) => a.questionId === currentQuestion.id,
+      );
       setSelectedAnswer(savedAnswer?.selectedAnswer || '');
     }
   }, [currentQuestionIndex, studyMode, questions, userAnswers]);
 
-  React.useEffect(() => {
-    const storedQuestions = localStorage.getItem('studyQuestions');
-    const storedFileName = localStorage.getItem('studyFileName');
-    const storedDuplicates = localStorage.getItem('studyDuplicates');
-    
-    if (storedQuestions) {
-      try {
-        const parsed = JSON.parse(storedQuestions);
-        setAllQuestions(parsed);
-        setQuestions(parsed);
-        setFileName(storedFileName || 'Arquivo carregado');
-        setDuplicatesRemoved(parseInt(storedDuplicates || '0'));
-        setHasStoredQuestions(true);
-      } catch (error) {
-        console.error('Error loading stored questions:', error);
-        localStorage.removeItem('studyQuestions');
-        localStorage.removeItem('studyFileName');
-        localStorage.removeItem('studyDuplicates');
-      }
-    }
-  }, []);
-
   const calculateScore = () => {
-    const correct = userAnswers.filter(a => a.isCorrect).length;
-    const total = userAnswers.length;
-    const percentage = total > 0 ? Math.round((correct / total) * 100) : 0;
-    return { correct, total, percentage };
+    const totalQuestions = questions.length;
+    const correct = userAnswers.filter((a) => a.isCorrect).length;
+    const answered = userAnswers.length;
+    const incorrect = Math.max(totalQuestions - correct, 0);
+    const unanswered = Math.max(totalQuestions - answered, 0);
+    const percentage =
+      totalQuestions > 0 ? Math.round((correct / totalQuestions) * 100) : 0;
+
+    return { correct, answered, unanswered, incorrect, totalQuestions, percentage };
   };
 
-  if (mode === 'upload') {
+  const deckLabel = getDeckLabel(selectedParts);
+  const allSelected = selectedParts.length === PART_KEYS.length;
+
+  // ---------------- HOME SCREEN ----------------
+  if (mode === 'home') {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-primary/5 via-background to-secondary/5 flex items-center justify-center p-4">
-        <Card className="w-full max-w-2xl shadow-lg">
-          <CardHeader className="text-center space-y-2">
-            <div className="flex justify-end mb-2">
+      <div className="min-h-screen bg-gradient-to-br from-primary/5 via-background to-secondary/5 p-4 py-8">
+        <div className="max-w-3xl mx-auto space-y-8">
+          <div className="text-center space-y-2">
+            <h1 className="text-3xl md:text-4xl font-bold tracking-tight">
+              Study System – Aviation
+            </h1>
+            <p className="text-muted-foreground">
+              Choose the module and how you want to study.
+            </p>
+          </div>
+
+          {/* MÓDULOS / BOTÃO CARs */}
+          <Card>
+            <CardHeader>
+              <CardTitle>Modules</CardTitle>
+              <CardDescription>Available study decks.</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-3">
+              {/* Botão principal CARs */}
               <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => setShowSettings(!showSettings)}
+                className="w-full justify-between"
+                variant="secondary"
+                onClick={() => setShowCarsParts((prev) => !prev)}
               >
-                <FileText className="w-4 h-4 mr-2" />
-                Settings
+                <span>CARs – Canadian Aviation Regulations</span>
+                <span className="text-xs text-muted-foreground">
+                  {showCarsParts ? 'Hide modules' : 'Show modules'}
+                </span>
               </Button>
-            </div>
-            <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
-              <Brain className="w-8 h-8 text-primary" />
-            </div>
-            <CardTitle className="text-3xl font-bold">Study System</CardTitle>
-            <CardDescription className="text-base">
-              Upload your question file and start studying
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-6">
-            {showSettings && (
-              <div className="space-y-4 p-4 bg-muted/50 rounded-lg border-2 border-border">
-                <div className="flex items-center justify-between">
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => setShowSettings(false)}
-                  >
-                    <Brain className="w-4 h-4 mr-2" />
-                    Home
-                  </Button>
-                  <h3 className="font-semibold text-foreground">Settings</h3>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => setShowSettings(false)}
-                  >
-                    <X className="w-4 h-4" />
-                  </Button>
-                </div>
 
-                <div className="space-y-4">
-                  <div className="border-2 border-dashed border-border rounded-lg p-6 text-center hover:border-primary/50 transition-colors">
-                    <input
-                      type="file"
-                      accept=".txt"
-                      onChange={handleFileUpload}
-                      className="hidden"
-                      id="file-upload-settings"
-                    />
-                    <label htmlFor="file-upload-settings" className="cursor-pointer flex flex-col items-center space-y-3">
-                      <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
-                        <Upload className="w-8 h-8 text-primary" />
-                      </div>
-                      <div className="space-y-1">
-                        <p className="text-base font-semibold text-foreground">
-                          Upload New File
-                        </p>
-                        <p className="text-xs text-muted-foreground">
-                          TXT file with formatted questions
-                        </p>
-                      </div>
-                    </label>
-                  </div>
+              {/* Lista vertical arrojada + multi-seleção */}
+              {showCarsParts && (
+                <div className="space-y-3 pt-2">
+                  <p className="text-sm text-muted-foreground">
+                    Select one or more Parts, or choose{' '}
+                    <span className="font-semibold">All Parts</span> to study
+                    everything in one deck.
+                  </p>
 
-                  <div className="bg-background rounded-lg p-4 space-y-2">
-                    <div className="flex items-start space-x-2">
-                      <FileText className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                      <div className="space-y-1">
-                        <p className="text-sm font-semibold text-foreground">File format:</p>
-                        <div className="text-xs text-muted-foreground space-y-1 font-mono bg-muted p-2 rounded">
-                          <p>Q: Your question here?</p>
-                          <p>A. Option A</p>
-                          <p>B. Option B</p>
-                          <p>C. Option C</p>
-                          <p>D. Option D</p>
-                          <p>Correct Answer: A</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <ul className="space-y-2">
+                    {PART_KEYS.map((pid) => {
+                      const isActive = selectedParts.includes(pid);
+                      const fullLabel = PART_LABELS[pid];
+                      const shortTitle = PART_SHORT_TITLES[pid];
+                      const subtitle = fullLabel.split('–')[1]?.trim() ?? '';
+                      const count = getPartQuestionCount(pid);
 
-                  <div className="space-y-2">
-                    {hasStoredQuestions && allQuestions.length > 0 && duplicatesRemoved > 0 && (
-                      <Button 
-                        onClick={handleExportQuestions} 
-                        variant="outline" 
-                        className="w-full"
+                      return (
+                        <li key={pid}>
+                          <button
+                            type="button"
+                            onClick={() => togglePart(pid)}
+                            className={`w-full flex items-center justify-between rounded-xl border px-4 py-3 text-left transition 
+                            ${
+                              isActive
+                                ? 'bg-gray-900 text-white border-gray-900 shadow-sm'
+                                : 'bg-white hover:bg-gray-50 border-gray-200'
+                            }`}
+                          >
+                            <div>
+                              <div className="text-sm font-semibold">
+                                {shortTitle}
+                              </div>
+                              <div
+                                className={`text-xs ${
+                                  isActive ? 'text-gray-200' : 'text-gray-600'
+                                }`}
+                              >
+                                {subtitle}
+                              </div>
+                            </div>
+                            <span
+                              className={`text-xs px-2 py-1 rounded-full ${
+                                isActive
+                                  ? 'bg-gray-800 text-gray-100'
+                                  : 'bg-gray-100 text-gray-700'
+                              }`}
+                            >
+                              {count} questions
+                            </span>
+                          </button>
+                        </li>
+                      );
+                    })}
+
+                    {/* ALL PARTS */}
+                    <li>
+                      <button
+                        type="button"
+                        onClick={handleSelectAllParts}
+                        className={`w-full flex items-center justify-between rounded-xl border px-4 py-3 text-left transition 
+                        ${
+                          allSelected
+                            ? 'bg-blue-600 text-white border-blue-600 shadow-sm'
+                            : 'bg-blue-50 hover:bg-blue-100 border-blue-200 text-blue-900'
+                        }`}
                       >
-                        <Upload className="w-4 h-4 mr-2" />
-                        Export Questions (no duplicates)
-                      </Button>
-                    )}
-                    
-                    <Button 
-                      onClick={handleClearMemory} 
-                      variant="destructive" 
-                      className="w-full"
-                    >
-                      <X className="w-4 h-4 mr-2" />
-                      Clear Memory
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            )}
+                        <div>
+                          <div className="text-sm font-semibold">
+                            All Parts – Full CARs Deck
+                          </div>
+                          <div
+                            className={`text-xs ${
+                              allSelected ? 'text-blue-100' : 'text-blue-800/80'
+                            }`}
+                          >
+                            Mix of all CARs Parts in a single deck.
+                          </div>
+                        </div>
+                        <span
+                          className={`text-xs px-2 py-1 rounded-full ${
+                            allSelected
+                              ? 'bg-blue-500 text-blue-50'
+                              : 'bg-blue-100 text-blue-900'
+                          }`}
+                        >
+                          {getAllPartsQuestionCount()} questions
+                        </span>
+                      </button>
+                    </li>
+                  </ul>
 
-            {hasStoredQuestions && allQuestions.length > 0 && (
-              <div className="bg-gradient-to-br from-primary/10 to-accent/10 border-2 border-primary/30 rounded-xl p-8 text-center space-y-4 shadow-md hover:shadow-lg transition-shadow">
-                <div className="mx-auto w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mb-2">
-                  <Brain className="w-8 h-8 text-primary" />
-                </div>
-                <div className="space-y-2">
-                  <h3 className="text-xl font-bold text-foreground">Continue Studying</h3>
-                  <div className="inline-flex items-center space-x-2 bg-background/80 px-4 py-2 rounded-full border border-border">
-                    <FileText className="w-4 h-4 text-primary" />
-                    <p className="text-sm font-medium text-foreground">
-                      {fileName}
-                    </p>
-                  </div>
-                  <p className="text-2xl font-bold text-primary">
-                    {allQuestions.length} <span className="text-base font-normal text-muted-foreground">questions ready</span>
+                  <p className="text-xs text-muted-foreground">
+                    Selected deck:{' '}
+                    <span className="font-semibold">
+                      {deckLabel} ({allQuestions.length} questions)
+                    </span>
                   </p>
                 </div>
-                <div className="space-y-2 pt-2">
-                  <Button onClick={handleContinueStudying} className="w-full" size="lg">
-                    <Brain className="w-5 h-5 mr-2" />
-                    Start Quiz
-                  </Button>
-                  {duplicatesRemoved > 0 && (
-                    <Button onClick={handleExportQuestions} variant="outline" className="w-full">
-                      <Upload className="w-4 h-4 mr-2" />
-                      Export Questions (no duplicates)
-                    </Button>
-                  )}
+              )}
+            </CardContent>
+          </Card>
+
+          {/* STUDY MODES */}
+          <Card>
+            <CardHeader>
+              <CardTitle>Study modes</CardTitle>
+              <CardDescription>
+                Select how you want to review the deck.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="flex items-center justify-between border rounded-lg px-4 py-3">
+                <div>
+                  <p className="font-semibold">Flashcard mode</p>
+                  <p className="text-xs text-muted-foreground">
+                    See the question with the correct answer, explanation and
+                    reference.
+                  </p>
                 </div>
+                <Button onClick={() => handleStartQuiz('flashcard')}>Start</Button>
               </div>
-            )}
 
-            <div className="space-y-4">
-              <p className="font-semibold text-foreground">Select study mode:</p>
-
-              <div className="grid grid-cols-3 gap-4">
-                <Card 
-                  className={`border-2 transition-all cursor-pointer hover:shadow-md ${studyMode === 'flashcard' ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/50'}`}
-                  onClick={() => setStudyMode('flashcard')}
-                >
-                  <CardContent className="pt-6 relative">
-                    {studyMode === 'flashcard' && (
-                      <div className="absolute top-4 right-4">
-                        <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center">
-                          <Check className="w-4 h-4 text-primary-foreground" />
-                        </div>
-                      </div>
-                    )}
-                    <div className="space-y-2">
-                      <div className="flex items-center space-x-2">
-                        <BookOpen className="w-5 h-5 text-primary" />
-                        <p className="font-semibold text-foreground text-lg">Flash Card</p>
-                      </div>
-                      <p className="text-sm text-muted-foreground">
-                        Question and correct answer only - Quick review
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-                <Card 
-                  className={`border-2 transition-all cursor-pointer hover:shadow-md ${studyMode === 'practice' ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/50'}`}
-                  onClick={() => setStudyMode('practice')}
-                >
-                  <CardContent className="pt-6 relative">
-                    {studyMode === 'practice' && (
-                      <div className="absolute top-4 right-4">
-                        <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center">
-                          <Check className="w-4 h-4 text-primary-foreground" />
-                        </div>
-                      </div>
-                    )}
-                    <div className="space-y-2">
-                      <p className="font-semibold text-foreground text-lg">Practice Mode</p>
-                      <p className="text-sm text-muted-foreground">
-                        Immediate feedback after each answer
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-                <Card 
-                  className={`border-2 transition-all cursor-pointer hover:shadow-md ${studyMode === 'test' ? 'border-primary bg-primary/5' : 'border-border hover:border-primary/50'}`}
-                  onClick={() => setStudyMode('test')}
-                >
-                  <CardContent className="pt-6 relative">
-                    {studyMode === 'test' && (
-                      <div className="absolute top-4 right-4">
-                        <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center">
-                          <Check className="w-4 h-4 text-primary-foreground" />
-                        </div>
-                      </div>
-                    )}
-                    <div className="space-y-2">
-                      <p className="font-semibold text-foreground text-lg">Test Mode</p>
-                      <p className="text-sm text-muted-foreground mb-2">
-                        Random questions - Full test simulation
-                      </p>
-
-                      {/* Botões 25 / 50 questions bonitinhos */}
-                      <div className="mt-4 flex items-center justify-center gap-3">
-                        <Button
-                          type="button"
-                          variant={testQuestionCount === 25 ? 'default' : 'outline'}
-                          size="sm"
-                          className={`px-6 py-2 rounded-full transition-all ${
-                            testQuestionCount === 25 ? 'shadow-md' : ''
-                          }`}
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setTestQuestionCount(25);
-                          }}
-                        >
-                          25 questions
-                        </Button>
-
-                        <Button
-                          type="button"
-                          variant={testQuestionCount === 50 ? 'default' : 'outline'}
-                          size="sm"
-                          className={`px-6 py-2 rounded-full transition-all ${
-                            testQuestionCount === 50 ? 'shadow-md' : ''
-                          }`}
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setTestQuestionCount(50);
-                          }}
-                        >
-                          50 questions
-                        </Button>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+              <div className="flex items-center justify-between border rounded-lg px-4 py-3">
+                <div>
+                  <p className="font-semibold">Practice mode</p>
+                  <p className="text-xs text-muted-foreground">
+                    Multiple choice with instant feedback.
+                  </p>
+                </div>
+                <Button onClick={() => handleStartQuiz('practice')}>Start</Button>
               </div>
-            </div>
-          </CardContent>
-        </Card>
+
+              <div className="flex items-center justify-between border rounded-lg px-4 py-3">
+                <div>
+                  <p className="font-semibold">Test mode</p>
+                  <p className="text-xs text-muted-foreground">
+                    Timed exam. Unanswered questions count as incorrect.
+                  </p>
+                </div>
+                <Button onClick={() => handleStartQuiz('test')}>Start</Button>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     );
   }
 
+  // ---------------- QUIZ SCREENS ----------------
   if (mode === 'quiz' && questions.length > 0) {
     const currentQuestion = questions[currentQuestionIndex];
     const progress = ((currentQuestionIndex + 1) / questions.length) * 100;
@@ -741,87 +594,93 @@ export default function CARsStudyApp() {
           <div className="max-w-4xl mx-auto space-y-6">
             <div className="flex items-center justify-between">
               <div className="space-y-1">
-                <h1 className="text-2xl font-bold text-foreground">Flash Card Mode</h1>
-                <div className="flex items-center space-x-3">
-                  <p className="text-sm text-muted-foreground">{fileName}</p>
-                  {duplicatesRemoved > 0 && (
-                    <span className="text-xs bg-yellow-500/10 text-yellow-700 border border-yellow-500/20 px-2 py-1 rounded">
-                      {duplicatesRemoved} duplicate(s) removed
-                    </span>
-                  )}
+                <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium mb-1">
+                  <BookOpen className="w-3 h-3" />
+                  <span>Flashcard Mode</span>
                 </div>
+                <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-foreground">
+                  Study System - {deckLabel}
+                </h1>
+                <p className="text-sm text-muted-foreground">
+                  Review questions one by one and see the correct answer instantly.
+                </p>
               </div>
-              <div className="flex space-x-2">
-                {duplicatesRemoved > 0 && (
-                  <Button variant="outline" onClick={handleExportQuestions} size="sm">
-                    <Upload className="w-4 h-4 mr-2" />
-                    Export
-                  </Button>
-                )}
-                <Button variant="outline" onClick={handleGoHome} size="sm">
-                  <X className="w-4 h-4 mr-2" />
-                  Exit
-                </Button>
-              </div>
+
+              <Button variant="outline" onClick={handleGoHome} size="sm">
+                <X className="w-4 h-4 mr-2" />
+                Exit
+              </Button>
             </div>
 
             <div className="space-y-2">
-              <div className="flex items-center justify-between text-sm">
-                <span className="text-muted-foreground">
-                  Card {currentQuestionIndex + 1} of {questions.length}
+              <div className="flex items-center justify-between text-sm text-muted-foreground">
+                <span>
+                  Question {currentQuestionIndex + 1} of {questions.length}
                 </span>
-                <span className="font-semibold text-primary">
-                  {Math.round(progress)}% complete
-                </span>
+                <span>{Math.round(progress)}% completed</span>
               </div>
-              <div className="h-2 bg-muted rounded-full overflow-hidden">
+              <div className="w-full bg-secondary/40 rounded-full h-2 overflow-hidden">
                 <div
-                  className="h-full bg-primary transition-all duration-300"
+                  className="bg-primary h-2 rounded-full transition-all"
                   style={{ width: `${progress}%` }}
                 />
               </div>
             </div>
 
-            <Card className="shadow-lg min-h-96">
-              <CardHeader>
-                <CardTitle className="text-xl leading-relaxed text-center mb-6">
+            <Card className="shadow-lg border-primary/10">
+              <CardHeader className="space-y-4">
+                <CardTitle className="text-lg md:text-xl text-foreground">
                   {currentQuestion.question}
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-6 text-center">
-                <div className="py-8 space-y-6">
-                  <div className="text-sm text-muted-foreground">
-                    Correct Answer:
+              <CardContent className="space-y-4 text-sm">
+                <div className="p-3 rounded-lg bg-primary/5 border border-primary/20">
+                  <p className="font-semibold mb-1">Correct answer</p>
+                  <p>
+                    {currentQuestion.correctAnswer}.{' '}
+                    {currentQuestion.options[currentQuestion.correctAnswer]}
+                  </p>
+                </div>
+
+                {currentQuestion.explanation && (
+                  <div className="p-3 rounded-lg bg-muted/60">
+                    <p className="font-semibold mb-1">Explanation</p>
+                    <p>{currentQuestion.explanation}</p>
                   </div>
-                  <div className="bg-green-500/10 border-2 border-green-500 rounded-lg p-8">
-                    <div className="flex items-center justify-center space-x-3 mb-2">
-                      <Check className="w-8 h-8 text-green-600" />
-                    </div>
-                    <p className="text-2xl font-bold text-green-700">
-                      {currentQuestion.options[currentQuestion.correctAnswer]}
+                )}
+
+                <div className="grid gap-2 text-xs text-muted-foreground md:grid-cols-2">
+                  {currentQuestion.reference && (
+                    <p>
+                      <span className="font-semibold">Regulation reference: </span>
+                      {currentQuestion.reference}
                     </p>
-                  </div>
+                  )}
+                  {currentQuestion.source && (
+                    <p>
+                      <span className="font-semibold">Study source: </span>
+                      {currentQuestion.source}
+                    </p>
+                  )}
+                  {currentQuestion.category && (
+                    <p>
+                      <span className="font-semibold">Category: </span>
+                      {currentQuestion.category}
+                    </p>
+                  )}
                 </div>
               </CardContent>
               <CardFooter className="flex justify-between">
-                <div className="flex items-center space-x-4">
-                  {currentQuestionIndex > 0 && (
-                    <Button
-                      variant="outline"
-                      onClick={() => {
-                        setCurrentQuestionIndex(prev => prev - 1);
-                      }}
-                      size="sm"
-                    >
-                      Previous
-                    </Button>
-                  )}
-                </div>
-                <div className="flex space-x-2">
-                  <Button onClick={handleNextFlashcard} className="min-w-32">
-                    {currentQuestionIndex < questions.length - 1 ? 'Next Card' : 'Finish'}
-                  </Button>
-                </div>
+                <Button
+                  variant="outline"
+                  disabled={currentQuestionIndex === 0}
+                  onClick={handlePreviousQuestion}
+                >
+                  Previous
+                </Button>
+                <Button onClick={handleNextQuestion}>
+                  {currentQuestionIndex === questions.length - 1 ? 'Restart' : 'Next'}
+                </Button>
               </CardFooter>
             </Card>
           </div>
@@ -829,188 +688,136 @@ export default function CARsStudyApp() {
       );
     }
 
-    // Practice / Test mode
+    // PRACTICE & TEST
     return (
       <div className="min-h-screen bg-gradient-to-br from-primary/5 via-background to-secondary/5 p-4 py-8">
         <div className="max-w-4xl mx-auto space-y-6">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div className="space-y-1">
-              <h1 className="text-2xl font-bold text-foreground">
-                {studyMode === 'practice' ? 'Practice Mode' : 'Test Mode'}
-              </h1>
-              <div className="flex items-center space-x-3">
-                <p className="text-sm text-muted-foreground">{fileName}</p>
-                {duplicatesRemoved > 0 && (
-                  <span className="text-xs bg-yellow-500/10 text-yellow-700 border border-yellow-500/20 px-2 py-1 rounded">
-                    {duplicatesRemoved} duplicate(s) removed
-                  </span>
-                )}
+              <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium mb-1">
+                <Brain className="w-3 h-3" />
+                <span>{studyMode === 'practice' ? 'Practice Mode' : 'Test Mode'}</span>
               </div>
+              <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-foreground">
+                Study System - {deckLabel}
+              </h1>
+              <p className="text-sm text-muted-foreground">
+                {studyMode === 'practice'
+                  ? 'Practice questions at your own pace with instant feedback.'
+                  : 'Simulate a real test with a timer and detailed results.'}
+              </p>
             </div>
-            <div className="flex space-x-2">
-              {duplicatesRemoved > 0 && (
-                <Button variant="outline" onClick={handleExportQuestions} size="sm">
-                  <Upload className="w-4 h-4 mr-2" />
-                  Export
-                </Button>
+
+            <div className="flex items-center space-x-3">
+              {studyMode === 'test' && timeLeft !== null && (
+                <span className="font-mono text-sm px-2 py-1 rounded bg-secondary text-secondary-foreground">
+                  Time left: {formatTime(timeLeft)}
+                </span>
               )}
-              <Button
-                variant="outline"
-                onClick={handleGoHome}
-                size="sm"
-              >
+              <Button variant="outline" onClick={handleGoHome} size="sm">
                 <X className="w-4 h-4 mr-2" />
-                Exit Quiz
+                Exit
               </Button>
             </div>
           </div>
 
           <div className="space-y-2">
-            <div className="flex items-center justify-between text-sm">
-              <span className="text-muted-foreground">
+            <div className="flex items-center justify-between text-sm text-muted-foreground">
+              <span>
                 Question {currentQuestionIndex + 1} of {questions.length}
               </span>
-
-              <div className="flex items-center gap-4">
-                <span className="font-semibold text-primary">
-                  {Math.round(progress)}% complete
-                </span>
-
-                {studyMode === 'test' && timeLeft !== null && (
-                  <span className="font-mono text-sm">
-                    ⏱ {formatTime(timeLeft)}
-                  </span>
-                )}
-              </div>
+              <span>{Math.round(progress)}% completed</span>
             </div>
-            <div className="h-2 bg-muted rounded-full overflow-hidden">
+            <div className="w-full bg-secondary/40 rounded-full h-2 overflow-hidden">
               <div
-                className="h-full bg-primary transition-all duration-300"
+                className="bg-primary h-2 rounded-full transition-all"
                 style={{ width: `${progress}%` }}
               />
             </div>
           </div>
 
-          <Card className="shadow-lg">
-            <CardHeader>
-              <CardTitle className="text-xl leading-relaxed">
+          <Card className="shadow-lg border-primary/10">
+            <CardHeader className="space-y-2">
+              <CardTitle className="text-lg md:text-xl text-foreground">
                 {currentQuestion.question}
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <RadioGroup value={selectedAnswer} onValueChange={handleAnswerSelect}>
-                <div className="space-y-3">
-                  {Object.entries(currentQuestion.options).map(([key, value]) => (
-                    <div
-                      key={key}
-                      className={`flex items-start space-x-3 p-4 rounded-lg border-2 transition-all ${
-                        selectedAnswer === key
-                          ? 'border-primary bg-primary/5'
-                          : 'border-border hover:border-primary/50 hover:bg-muted/50'
-                      } ${
-                        showFeedback
-                          ? key === currentQuestion.correctAnswer
-                            ? 'border-green-500 bg-green-500/10'
-                            : selectedAnswer === key
-                            ? 'border-red-500 bg-red-500/10'
-                            : 'opacity-50'
-                          : ''
-                      }`}
-                    >
-                      <RadioGroupItem value={key} id={key} className="mt-1" />
-                      <Label htmlFor={key} className="flex-1 cursor-pointer font-normal text-base leading-relaxed">
-                        <span className="font-semibold text-foreground">{key}.</span>{' '}
-                        <span className="text-foreground">{value}</span>
-                      </Label>
-                      {showFeedback && key === currentQuestion.correctAnswer && (
-                        <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
-                      )}
-                      {showFeedback && selectedAnswer === key && key !== currentQuestion.correctAnswer && (
-                        <X className="w-5 h-5 text-red-600 flex-shrink-0 mt-1" />
-                      )}
+              <RadioGroup
+                value={selectedAnswer}
+                onValueChange={handleAnswerSelect}
+                className="grid gap-3"
+              >
+                {(['A', 'B', 'C', 'D'] as const).map((optionKey) => (
+                  <Label
+                    key={optionKey}
+                    className={`flex items-center space-x-3 p-3 border rounded-lg cursor-pointer transition-all ${
+                      selectedAnswer === optionKey
+                        ? 'border-primary bg-primary/5'
+                        : 'border-border hover:border-primary/60 hover:bg-primary/5'
+                    }`}
+                  >
+                    <RadioGroupItem value={optionKey} id={`quiz-${optionKey}`} />
+                    <div className="flex flex-col">
+                      <span className="font-semibold text-sm">
+                        {optionKey}. {currentQuestion.options[optionKey]}
+                      </span>
                     </div>
-                  ))}
-                </div>
+                  </Label>
+                ))}
               </RadioGroup>
 
-              {showFeedback && (
+              {studyMode === 'practice' && showFeedback && (
                 <div
-                  className={`p-4 rounded-lg border-2 ${
+                  className={`mt-4 p-3 rounded-lg text-sm flex items-start space-x-2 ${
                     isCorrect
-                      ? 'bg-green-500/10 border-green-500'
-                      : 'bg-red-500/10 border-red-500'
+                      ? 'bg-emerald-50 text-emerald-800 border border-emerald-100'
+                      : 'bg-red-50 text-red-800 border border-red-100'
                   }`}
                 >
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-2">
-                      {isCorrect ? (
-                        <Check className="w-5 h-5 text-green-600" />
-                      ) : (
-                        <X className="w-5 h-5 text-red-600" />
-                      )}
-                      <p className="font-semibold text-foreground">
-                        {isCorrect ? 'Correct!' : 'Incorrect!'}
-                      </p>
-                    </div>
-                    {!isCorrect && (
-                      <Button 
-                        onClick={handleGotIt}
-                        size="sm"
-                        variant={isCorrect ? "default" : "outline"}
-                      >
-                        Got it!
-                      </Button>
+                  <div className="mt-0.5">
+                    {isCorrect ? (
+                      <Check className="w-4 h-4 text-emerald-500" />
+                    ) : (
+                      <X className="w-4 h-4 text-red-500" />
                     )}
                   </div>
-                  {!isCorrect && (
-                    <p className="mt-3 text-sm text-foreground">
-                      The correct answer is: <span className="font-semibold">{currentQuestion.correctAnswer}. {currentQuestion.options[currentQuestion.correctAnswer]}</span>
+                  <div>
+                    <p className="font-semibold">
+                      {isCorrect ? 'Correct!' : 'Incorrect.'}
                     </p>
-                  )}
+                    {!isCorrect && (
+                      <>
+                        <p className="mt-1">
+                          Correct answer:{' '}
+                          <span className="font-semibold">
+                            {currentQuestion.correctAnswer}.{' '}
+                            {currentQuestion.options[currentQuestion.correctAnswer]}
+                          </span>
+                        </p>
+                        {currentQuestion.reference && (
+                          <p className="mt-1 text-xs">
+                            <span className="font-semibold">Reference: </span>
+                            {currentQuestion.reference}
+                          </p>
+                        )}
+                      </>
+                    )}
+                  </div>
                 </div>
               )}
             </CardContent>
             <CardFooter className="flex justify-between">
-              <div className="flex items-center space-x-4">
-                {studyMode === 'practice' && (
-                  <div className="text-sm text-muted-foreground">
-                    {userAnswers.filter(a => a.isCorrect).length} correct answers
-                  </div>
-                )}
-                {currentQuestionIndex > 0 && (
-                  <Button
-                    variant="outline"
-                    onClick={() => {
-                      setCurrentQuestionIndex(prev => prev - 1);
-                      const prevQuestion = questions[currentQuestionIndex - 1];
-                      const savedAnswer = userAnswers.find(a => a.questionId === prevQuestion.id);
-                      setSelectedAnswer(savedAnswer?.selectedAnswer || '');
-                      setShowFeedback(false);
-                    }}
-                    size="sm"
-                  >
-                    Previous
-                  </Button>
-                )}
-              </div>
-              <div className="flex space-x-2">
-                {studyMode === 'test' ? (
-                  <Button
-                    onClick={handleSubmitAnswer}
-                    className="min-w-32"
-                  >
-                    {currentQuestionIndex < questions.length - 1 ? 'Next' : 'Finish Test'}
-                  </Button>
-                ) : (
-                  <Button
-                    onClick={handleSubmitAnswer}
-                    disabled={!selectedAnswer || showFeedback}
-                    className="min-w-32"
-                  >
-                    Confirm
-                  </Button>
-                )}
-              </div>
+              <Button
+                variant="outline"
+                disabled={currentQuestionIndex === 0}
+                onClick={handlePreviousQuestion}
+              >
+                Previous
+              </Button>
+              <Button onClick={handleNextQuestion}>
+                {currentQuestionIndex === questions.length - 1 ? 'Finish' : 'Next'}
+              </Button>
             </CardFooter>
           </Card>
         </div>
@@ -1018,8 +825,10 @@ export default function CARsStudyApp() {
     );
   }
 
+  // ---------------- RESULTS SCREEN ----------------
   if (mode === 'results') {
-    const { correct, total, percentage } = calculateScore();
+    const { correct, answered, unanswered, incorrect, totalQuestions, percentage } =
+      calculateScore();
 
     return (
       <div className="min-h-screen bg-gradient-to-br from-primary/5 via-background to-secondary/5 p-4 py-8">
@@ -1029,98 +838,108 @@ export default function CARsStudyApp() {
               <div className="mx-auto w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center">
                 <Trophy className="w-10 h-10 text-primary" />
               </div>
-              <CardTitle className="text-3xl font-bold">Final Results</CardTitle>
-              <CardDescription className="text-lg">
-                You completed the quiz!
-              </CardDescription>
+              <div className="space-y-2">
+                <CardTitle className="text-3xl font-bold text-foreground">
+                  Test Results – {deckLabel}
+                </CardTitle>
+                <CardDescription className="text-base text-muted-foreground">
+                  Review your performance and identify areas to improve.
+                </CardDescription>
+              </div>
             </CardHeader>
+
             <CardContent className="space-y-6">
-              <div className="text-center space-y-4 p-6 bg-muted/50 rounded-lg">
-                <div className="text-6xl font-bold text-primary">
-                  {percentage}%
-                </div>
-                <p className="text-xl text-foreground">
-                  {correct} of {total} questions correct
-                </p>
-                <div className="flex justify-center space-x-4 text-sm">
-                  <div className="flex items-center space-x-2">
-                    <div className="w-3 h-3 bg-green-500 rounded-full" />
-                    <span className="text-muted-foreground">{correct} correct</span>
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div className="space-y-2">
+                  <p className="text-4xl font-bold tracking-tight">
+                    {percentage}%{' '}
+                    <span className="text-base font-normal text-muted-foreground">
+                      score
+                    </span>
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    {correct} of {totalQuestions} questions correct
+                  </p>
+
+                  <div className="flex justify-center space-x-4 text-sm">
+                    <div className="flex items-center space-x-2">
+                      <div className="w-3 h-3 bg-green-500 rounded-full" />
+                      <span className="text-muted-foreground">{correct} correct</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <div className="w-3 h-3 bg-red-500 rounded-full" />
+                      <span className="text-muted-foreground">
+                        {incorrect} incorrect
+                      </span>
+                    </div>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-3 h-3 bg-red-500 rounded-full" />
-                    <span className="text-muted-foreground">{total - correct} incorrect</span>
+                </div>
+
+                <div className="w-full md:w-64">
+                  <div className="relative w-40 h-40 mx-auto">
+                    <div className="absolute inset-0 rounded-full bg-secondary" />
+                    <div
+                      className="absolute inset-3 rounded-full border-[10px] border-primary"
+                      style={{
+                        background: `conic-gradient(var(--primary) ${percentage}%, transparent ${percentage}%)`,
+                      }}
+                    />
+                    <div className="absolute inset-7 rounded-full bg-background flex items-center justify-center">
+                      <span className="text-3xl font-bold">{percentage}%</span>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div className="space-y-4">
-                <h3 className="font-semibold text-lg text-foreground">Question Review</h3>
-                {questions.map((question, index) => {
-                  const userAnswer = userAnswers.find(a => a.questionId === question.id);
-                  return (
-                    <Card key={question.id} className={`border-2 ${userAnswer?.isCorrect ? 'border-green-500/30' : 'border-red-500/30'}`}>
-                      <CardHeader className="pb-3">
-                        <div className="flex items-start justify-between">
-                          <CardTitle className="text-base font-semibold text-foreground flex-1">
-                            {index + 1}. {question.question}
-                          </CardTitle>
-                          {userAnswer?.isCorrect ? (
-                            <Check className="w-5 h-5 text-green-600 flex-shrink-0 ml-2" />
-                          ) : (
-                            <X className="w-5 h-5 text-red-600 flex-shrink-0 ml-2" />
-                          )}
-                        </div>
-                      </CardHeader>
-                      <CardContent className="space-y-2 text-sm">
-                        <div className="flex items-start space-x-2">
-                          <span className="text-muted-foreground font-semibold min-w-24">Your answer:</span>
-                          <span className={userAnswer?.isCorrect ? 'text-green-600 font-semibold' : 'text-red-600 font-semibold'}>
-                            {userAnswer?.selectedAnswer}. {question.options[userAnswer?.selectedAnswer || 'A']}
-                          </span>
-                        </div>
-                        {!userAnswer?.isCorrect && (
-                          <div className="flex items-start space-x-2">
-                            <span className="text-muted-foreground font-semibold min-w-24">Correct answer:</span>
-                            <span className="text-green-600 font-semibold">
-                              {question.correctAnswer}. {question.options[question.correctAnswer]}
-                            </span>
-                          </div>
-                        )}
-                      </CardContent>
-                    </Card>
-                  );
-                })}
+              <div className="border-t pt-4">
+                <h3 className="text-sm font-semibold text-foreground mb-3">
+                  Summary
+                </h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li>
+                    • Total questions:{' '}
+                    <span className="font-medium">{totalQuestions}</span>
+                  </li>
+                  <li>
+                    • Answered:{' '}
+                    <span className="font-medium">{answered}</span>
+                  </li>
+                  <li>
+                    • Unanswered:{' '}
+                    <span className="font-medium">{unanswered}</span>
+                  </li>
+                  <li>
+                    • Correct answers:{' '}
+                    <span className="font-medium">{correct}</span>
+                  </li>
+                  <li>
+                    • Incorrect answers:{' '}
+                    <span className="font-medium">{incorrect}</span>
+                  </li>
+                </ul>
               </div>
             </CardContent>
-            <CardFooter className="flex justify-center space-x-4">
-              {studyMode === 'test' ? (
-                <>
-                  <Button onClick={handleGoHome} variant="outline" size="lg">
-                    <Brain className="w-4 h-4 mr-2" />
-                    Home
-                  </Button>
-                  <Button onClick={handleRestart} variant="outline" size="lg">
-                    <RefreshCw className="w-4 h-4 mr-2" />
-                    Retake Test
-                  </Button>
-                  <Button onClick={handleTakeNewTest} size="lg">
-                    <Trophy className="w-4 h-4 mr-2" />
-                    Take a New Test
-                  </Button>
-                </>
-              ) : (
-                <>
-                  <Button onClick={handleGoHome} variant="outline" size="lg">
-                    <Brain className="w-4 h-4 mr-2" />
-                    Home
-                  </Button>
-                  <Button onClick={handleRestart} variant="outline" size="lg">
-                    <RefreshCw className="w-4 h-4 mr-2" />
-                    Retake Quiz
-                  </Button>
-                </>
-              )}
+
+            <CardFooter className="flex flex-col md:flex-row md:justify-between gap-3">
+              <Button onClick={handleTakeNewTest} className="w-full md:w-auto" size="lg">
+                <Brain className="w-4 h-4 mr-2" />
+                Take another test
+              </Button>
+              <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+                <Button
+                  onClick={handleGoHome}
+                  variant="outline"
+                  className="w-full sm:w-auto"
+                  size="lg"
+                >
+                  <BookOpen className="w-4 h-4 mr-2" />
+                  Back to Main Menu
+                </Button>
+                <Button onClick={handleRestart} variant="outline" size="lg">
+                  <RefreshCw className="w-4 h-4 mr-2" />
+                  Retake Quiz
+                </Button>
+              </div>
             </CardFooter>
           </Card>
         </div>

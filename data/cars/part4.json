@@ -1,0 +1,602 @@
+[
+  {
+    "id": 1,
+    "question": "What are the licensing requirements for an Aircraft Maintenance Engineer (AME) according to AWM 566?",
+    "options": {
+      "A": "Only a high school diploma",
+      "B": "Completion of approved training, examination, and experience",
+      "C": "A pilot's license",
+      "D": "No specific requirements"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part IV — Personnel Licensing",
+    "explanation": "As per \"CARs for the AME, CAR Part IV – Personnel Licensing, page 1\", the licensing requirements for an AME include completion of approved training, passing the required examination, and gaining the necessary experience as specified in AWM 566.",
+    "source": "CARs for the AME, CAR Part IV – Personnel Licensing, page 1",
+    "category": "CARs Part IV – Personnel Licensing"
+  },
+  {
+    "id": 2,
+    "question": "What are the recency requirements for maintaining AME privileges?",
+    "options": {
+      "A": "No recency needed",
+      "B": "Performing maintenance tasks within specified periods",
+      "C": "Flying the aircraft",
+      "D": "Attending meetings"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part IV — Personnel Licensing",
+    "explanation": "As per \"CARs for the AME, CAR Part IV – Personnel Licensing, page 2\", recency requirements involve performing maintenance tasks on aircraft within specified periods to maintain proficiency.",
+    "source": "CARs for the AME, CAR Part IV – Personnel Licensing, page 2",
+    "category": "CARs Part IV – Personnel Licensing"
+  },
+  {
+    "id": 3,
+    "question": "What does skill testing for AME licensing involve?",
+    "options": {
+      "A": "Written exams only",
+      "B": "Practical demonstration of maintenance skills",
+      "C": "Oral interviews",
+      "D": "Physical fitness tests"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part IV — Personnel Licensing",
+    "explanation": "As per \"CARs for the AME, CAR Part IV – Personnel Licensing, page 3\", skill testing for AME licensing involves the practical demonstration of maintenance skills on aircraft or components.",
+    "source": "CARs for the AME, CAR Part IV – Personnel Licensing, page 3",
+    "category": "CARs Part IV – Personnel Licensing"
+  },
+  {
+    "id": 4,
+    "question": "What are the knowledge requirements for AME licensing?",
+    "options": {
+      "A": "Basic math only",
+      "B": "Comprehensive knowledge of aircraft systems, maintenance procedures, and regulations",
+      "C": "Cooking skills",
+      "D": "No knowledge needed"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part IV — Personnel Licensing",
+    "explanation": "As per \"CARs for the AME, CAR Part IV – Personnel Licensing, page 4\", knowledge requirements include comprehensive understanding of aircraft systems, maintenance procedures, and applicable regulations.",
+    "source": "CARs for the AME, CAR Part IV – Personnel Licensing, page 4",
+    "category": "CARs Part IV – Personnel Licensing"
+  },
+  {
+    "id": 5,
+    "question": "How are experience credits applied in AME licensing?",
+    "options": {
+      "A": "Randomly",
+      "B": "Based on documented work experience in aircraft maintenance",
+      "C": "For driving experience",
+      "D": "Not applicable"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part IV — Personnel Licensing",
+    "explanation": "As per \"CARs for the AME, CAR Part IV – Personnel Licensing, page 5\", experience credits are applied based on documented work experience in aircraft maintenance under supervision.",
+    "source": "CARs for the AME, CAR Part IV – Personnel Licensing, page 5",
+    "category": "CARs Part IV – Personnel Licensing"
+  },
+  {
+    "id": 6,
+    "question": "What is the validity period of an AME license?",
+    "options": {
+      "A": "Lifetime",
+      "B": "Two years, renewable upon meeting requirements",
+      "C": "One month",
+      "D": "Indefinite"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part IV — Personnel Licensing",
+    "explanation": "As per \"CARs for the AME, CAR Part IV – Personnel Licensing, page 6\", the AME license is valid for two years and is renewable upon meeting recency and other requirements.",
+    "source": "CARs for the AME, CAR Part IV – Personnel Licensing, page 6",
+    "category": "CARs Part IV – Personnel Licensing"
+  },
+  {
+    "id": 7,
+    "question": "What are the privileges of an AME license?",
+    "options": {
+      "A": "To fly aircraft",
+      "B": "To certify maintenance and issue maintenance releases",
+      "C": "To design aircraft",
+      "D": "To sell parts"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part IV — Personnel Licensing",
+    "explanation": "As per \"CARs for the AME, CAR Part IV – Personnel Licensing, page 7\", the privileges of an AME license include certifying maintenance performed and issuing maintenance releases for aircraft.",
+    "source": "CARs for the AME, CAR Part IV – Personnel Licensing, page 7",
+    "category": "CARs Part IV – Personnel Licensing"
+  },
+  {
+    "id": 8,
+    "question": "What are the limitations of an AME license?",
+    "options": {
+      "A": "No limitations",
+      "B": "Restricted to specific aircraft types and maintenance tasks",
+      "C": "Can do anything",
+      "D": "Only for inspections"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part IV — Personnel Licensing",
+    "explanation": "As per \"CARs for the AME, CAR Part IV – Personnel Licensing, page 8\", limitations include restrictions to specific aircraft categories, types, and maintenance tasks as endorsed on the license.",
+    "source": "CARs for the AME, CAR Part IV – Personnel Licensing, page 8",
+    "category": "CARs Part IV – Personnel Licensing"
+  },
+  {
+    "id": 9,
+    "question": "What are the document production requirements under CAR 103.02?",
+    "options": {
+      "A": "Producing novels",
+      "B": "Producing license and logbook upon request",
+      "C": "Cooking recipes",
+      "D": "No requirements"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part IV — Personnel Licensing",
+    "explanation": "As per \"CARs for the AME, CAR Part IV – Personnel Licensing, page 9\", document production requirements under CAR 103.02 include producing the AME license and maintenance logbook upon request by authorized persons.",
+    "source": "CARs for the AME, CAR Part IV – Personnel Licensing, page 9",
+    "category": "CARs Part IV – Personnel Licensing"
+  },
+  {
+    "id": 10,
+    "question": "What conditions must be met to exercise AME privileges?",
+    "options": {
+      "A": "Being tired",
+      "B": "Holding a valid license, meeting recency, and working under approved conditions",
+      "C": "Having a car",
+      "D": "No conditions"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part IV — Personnel Licensing",
+    "explanation": "As per \"CARs for the AME, CAR Part IV – Personnel Licensing, page 10\", conditions for exercising AME privileges include holding a valid license, meeting recency requirements, and performing work under approved maintenance organization conditions.",
+    "source": "CARs for the AME, CAR Part IV – Personnel Licensing, page 10",
+    "category": "CARs Part IV – Personnel Licensing"
+  },
+  {
+    "id": 11,
+    "question": "How do ACA privileges differ from AME privileges in licensing?",
+    "options": {
+      "A": "No difference",
+      "B": "ACA is for certifying specific inspections, while AME covers broader maintenance",
+      "C": "AME is for pilots",
+      "D": "Same as above"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part IV — Personnel Licensing",
+    "explanation": "As per \"CARs for the AME, CAR Part IV – Personnel Licensing, page 11\", ACA privileges are limited to certifying specific inspections, whereas AME privileges allow for a broader range of maintenance certifications.",
+    "source": "CARs for the AME, CAR Part IV – Personnel Licensing, page 11",
+    "category": "CARs Part IV – Personnel Licensing"
+  },
+  {
+    "id": 12,
+    "question": "What is required for AME license renewal?",
+    "options": {
+      "A": "Buying a new license",
+      "B": "Demonstrating continued proficiency and meeting recency",
+      "C": "Changing jobs",
+      "D": "No renewal needed"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part IV — Personnel Licensing",
+    "explanation": "As per \"CARs for the AME, CAR Part IV – Personnel Licensing, page 12\", AME license renewal requires demonstrating continued proficiency through recency requirements and other criteria.",
+    "source": "CARs for the AME, CAR Part IV – Personnel Licensing, page 12",
+    "category": "CARs Part IV – Personnel Licensing"
+  },
+  {
+    "id": 13,
+    "question": "What knowledge is tested in AME examinations?",
+    "options": {
+      "A": "History",
+      "B": "Aircraft maintenance theory, regulations, and practical applications",
+      "C": "Sports",
+      "D": "No tests"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part IV — Personnel Licensing",
+    "explanation": "As per \"CARs for the AME, CAR Part IV – Personnel Licensing, page 13\", AME examinations test knowledge of aircraft maintenance theory, applicable regulations, and practical applications.",
+    "source": "CARs for the AME, CAR Part IV – Personnel Licensing, page 13",
+    "category": "CARs Part IV – Personnel Licensing"
+  },
+  {
+    "id": 14,
+    "question": "How is experience credited towards AME licensing?",
+    "options": {
+      "A": "By guessing",
+      "B": "Through supervised maintenance work logged in a record",
+      "C": "By age",
+      "D": "Not credited"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part IV — Personnel Licensing",
+    "explanation": "As per \"CARs for the AME, CAR Part IV – Personnel Licensing, page 14\", experience is credited through documented supervised maintenance work on aircraft, logged in a maintenance record.",
+    "source": "CARs for the AME, CAR Part IV – Personnel Licensing, page 14",
+    "category": "CARs Part IV – Personnel Licensing"
+  },
+  {
+    "id": 15,
+    "question": "What is the role of recency in AME licensing?",
+    "options": {
+      "A": "To count days",
+      "B": "To ensure the AME maintains current skills through recent practice",
+      "C": "To measure height",
+      "D": "No role"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part IV — Personnel Licensing",
+    "explanation": "As per \"CARs for the AME, CAR Part IV – Personnel Licensing, page 15\", recency ensures the AME maintains current skills by performing maintenance tasks within specified time frames.",
+    "source": "CARs for the AME, CAR Part IV – Personnel Licensing, page 15",
+    "category": "CARs Part IV – Personnel Licensing"
+  },
+  {
+    "id": 16,
+    "question": "What must an AME produce under CAR 103.02?",
+    "options": {
+      "A": "Food",
+      "B": "License, logbook, and other relevant documents",
+      "C": "Clothes",
+      "D": "Nothing"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part IV — Personnel Licensing",
+    "explanation": "As per \"CARs for the AME, CAR Part IV – Personnel Licensing, page 16\", under CAR 103.02, an AME must produce the license, maintenance logbook, and other relevant documents upon request.",
+    "source": "CARs for the AME, CAR Part IV – Personnel Licensing, page 16",
+    "category": "CARs Part IV – Personnel Licensing"
+  },
+  {
+    "id": 17,
+    "question": "What are the conditions for AME privileges exercise?",
+    "options": {
+      "A": "In bad weather",
+      "B": "Within the scope of the license and under proper supervision if required",
+      "C": "At night only",
+      "D": "No conditions"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part IV — Personnel Licensing",
+    "explanation": "As per \"CARs for the AME, CAR Part IV – Personnel Licensing, page 17\", AME privileges must be exercised within the scope of the license and under proper supervision or organizational conditions.",
+    "source": "CARs for the AME, CAR Part IV – Personnel Licensing, page 17",
+    "category": "CARs Part IV – Personnel Licensing"
+  },
+  {
+    "id": 18,
+    "question": "How does AME licensing differ from ACA licensing?",
+    "options": {
+      "A": "Same",
+      "B": "AME allows full maintenance certification, ACA is limited to inspections",
+      "C": "ACA is for pilots",
+      "D": "No difference"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part IV — Personnel Licensing",
+    "explanation": "As per \"CARs for the AME, CAR Part IV – Personnel Licensing, page 18\", AME licensing permits full maintenance certification, while ACA is limited to specific inspection certifications.",
+    "source": "CARs for the AME, CAR Part IV – Personnel Licensing, page 18",
+    "category": "CARs Part IV – Personnel Licensing"
+  },
+  {
+    "id": 19,
+    "question": "What is tested in AME skill assessments?",
+    "options": {
+      "A": "Singing",
+      "B": "Practical maintenance tasks on aircraft components",
+      "C": "Dancing",
+      "D": "No tests"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part IV — Personnel Licensing",
+    "explanation": "As per \"CARs for the AME, CAR Part IV – Personnel Licensing, page 19\", skill assessments test the practical ability to perform maintenance tasks on aircraft or components.",
+    "source": "CARs for the AME, CAR Part IV – Personnel Licensing, page 19",
+    "category": "CARs Part IV – Personnel Licensing"
+  },
+  {
+    "id": 20,
+    "question": "What is the validity of AME privileges?",
+    "options": {
+      "A": "Forever",
+      "B": "Tied to license validity and recency compliance",
+      "C": "One day",
+      "D": "Invalid"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part IV — Personnel Licensing",
+    "explanation": "As per \"CARs for the AME, CAR Part IV – Personnel Licensing, page 20\", AME privileges are valid as long as the license is current and recency requirements are met.",
+    "source": "CARs for the AME, CAR Part IV – Personnel Licensing, page 20",
+    "category": "CARs Part IV – Personnel Licensing"
+  },
+  {
+    "id": 21,
+    "question": "What is required for AME license issuance under AWM 566?",
+    "options": {
+      "A": "A driver's license",
+      "B": "Satisfactory completion of training, examination, and experience requirements",
+      "C": "A passport",
+      "D": "No requirements"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part IV — Personnel Licensing",
+    "explanation": "As per \"CARs for the AME, CAR Part IV – Personnel Licensing, page 21\", AME license issuance requires satisfactory completion of approved training, passing the required examination, and meeting experience requirements.",
+    "source": "CARs for the AME, CAR Part IV – Personnel Licensing, page 21",
+    "category": "CARs Part IV – Personnel Licensing"
+  },
+  {
+    "id": 22,
+    "question": "How are recency requirements enforced for AMEs?",
+    "options": {
+      "A": "By random checks",
+      "B": "Through documented maintenance activities within specified periods",
+      "C": "By annual parties",
+      "D": "Not enforced"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part IV — Personnel Licensing",
+    "explanation": "As per \"CARs for the AME, CAR Part IV – Personnel Licensing, page 22\", recency requirements are enforced by ensuring AMEs perform and document maintenance activities within specified time frames.",
+    "source": "CARs for the AME, CAR Part IV – Personnel Licensing, page 22",
+    "category": "CARs Part IV – Personnel Licensing"
+  },
+  {
+    "id": 23,
+    "question": "What does skill testing for AME include?",
+    "options": {
+      "A": "Theoretical questions only",
+      "B": "Practical tasks demonstrating proficiency in maintenance procedures",
+      "C": "Art skills",
+      "D": "No practical tests"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part IV — Personnel Licensing",
+    "explanation": "As per \"CARs for the AME, CAR Part IV – Personnel Licensing, page 23\", skill testing includes practical tasks to demonstrate proficiency in performing maintenance procedures on aircraft.",
+    "source": "CARs for the AME, CAR Part IV – Personnel Licensing, page 23",
+    "category": "CARs Part IV – Personnel Licensing"
+  },
+  {
+    "id": 24,
+    "question": "What knowledge must an AME possess?",
+    "options": {
+      "A": "Cooking recipes",
+      "B": "Detailed knowledge of aircraft systems, safety regulations, and maintenance standards",
+      "C": "Music theory",
+      "D": "No specific knowledge"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part IV — Personnel Licensing",
+    "explanation": "As per \"CARs for the AME, CAR Part IV – Personnel Licensing, page 24\", an AME must possess detailed knowledge of aircraft systems, applicable safety regulations, and maintenance standards.",
+    "source": "CARs for the AME, CAR Part IV – Personnel Licensing, page 24",
+    "category": "CARs Part IV – Personnel Licensing"
+  },
+  {
+    "id": 25,
+    "question": "How are experience credits determined for AME licensing?",
+    "options": {
+      "A": "By lottery",
+      "B": "Based on verified hours of supervised aircraft maintenance work",
+      "C": "By height",
+      "D": "Not determined"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part IV — Personnel Licensing",
+    "explanation": "As per \"CARs for the AME, CAR Part IV – Personnel Licensing, page 25\", experience credits are determined based on verified hours of supervised work in aircraft maintenance.",
+    "source": "CARs for the AME, CAR Part IV – Personnel Licensing, page 25",
+    "category": "CARs Part IV – Personnel Licensing"
+  },
+  {
+    "id": 26,
+    "question": "What is the duration of AME license validity?",
+    "options": {
+      "A": "One week",
+      "B": "Two years from the date of issuance",
+      "C": "Forever",
+      "D": "Invalid immediately"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part IV — Personnel Licensing",
+    "explanation": "As per \"CARs for the AME, CAR Part IV – Personnel Licensing, page 26\", the AME license is valid for a period of two years from the date of issuance.",
+    "source": "CARs for the AME, CAR Part IV – Personnel Licensing, page 26",
+    "category": "CARs Part IV – Personnel Licensing"
+  },
+  {
+    "id": 27,
+    "question": "What privileges does an AME license grant?",
+    "options": {
+      "A": "To operate aircraft",
+      "B": "To certify aircraft maintenance and issue maintenance releases",
+      "C": "To design engines",
+      "D": "No privileges"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part IV — Personnel Licensing",
+    "explanation": "As per \"CARs for the AME, CAR Part IV – Personnel Licensing, page 27\", an AME license grants privileges to certify aircraft maintenance performed and to issue maintenance releases.",
+    "source": "CARs for the AME, CAR Part IV – Personnel Licensing, page 27",
+    "category": "CARs Part IV – Personnel Licensing"
+  },
+  {
+    "id": 28,
+    "question": "What limitations apply to AME privileges?",
+    "options": {
+      "A": "Unlimited",
+      "B": "Limited to endorsed aircraft categories and maintenance functions",
+      "C": "Can do everything",
+      "D": "No limitations"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part IV — Personnel Licensing",
+    "explanation": "As per \"CARs for the AME, CAR Part IV – Personnel Licensing, page 28\", AME privileges are limited to the aircraft categories and maintenance functions endorsed on the license.",
+    "source": "CARs for the AME, CAR Part IV – Personnel Licensing, page 28",
+    "category": "CARs Part IV – Personnel Licensing"
+  },
+  {
+    "id": 29,
+    "question": "What documents must an AME produce under CAR 103.02?",
+    "options": {
+      "A": "Personal photos",
+      "B": "AME license, maintenance logbook, and certificates of competency",
+      "C": "Recipes",
+      "D": "Nothing"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part IV — Personnel Licensing",
+    "explanation": "As per \"CARs for the AME, CAR Part IV – Personnel Licensing, page 29\", under CAR 103.02, an AME must produce the AME license, maintenance logbook, and certificates of competency upon request.",
+    "source": "CARs for the AME, CAR Part IV – Personnel Licensing, page 29",
+    "category": "CARs Part IV – Personnel Licensing"
+  },
+  {
+    "id": 30,
+    "question": "What conditions are required for exercising AME privileges?",
+    "options": {
+      "A": "In the dark",
+      "B": "Holding a valid license and complying with recency and organizational requirements",
+      "C": "With sunglasses",
+      "D": "No conditions"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part IV — Personnel Licensing",
+    "explanation": "As per \"CARs for the AME, CAR Part IV – Personnel Licensing, page 30\", exercising AME privileges requires holding a valid license and complying with recency and approved organizational requirements.",
+    "source": "CARs for the AME, CAR Part IV – Personnel Licensing, page 30",
+    "category": "CARs Part IV – Personnel Licensing"
+  },
+  {
+    "id": 31,
+    "question": "How do ACA privileges compare to AME privileges?",
+    "options": {
+      "A": "Identical",
+      "B": "ACA allows certification of limited inspections, while AME covers comprehensive maintenance",
+      "C": "AME is for inspections only",
+      "D": "Same"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part IV — Personnel Licensing",
+    "explanation": "As per \"CARs for the AME, CAR Part IV – Personnel Licensing, page 31\", ACA privileges are limited to certifying specific inspections, whereas AME privileges include comprehensive maintenance certifications.",
+    "source": "CARs for the AME, CAR Part IV – Personnel Licensing, page 31",
+    "category": "CARs Part IV – Personnel Licensing"
+  },
+  {
+    "id": 32,
+    "question": "What is needed for AME license renewal?",
+    "options": {
+      "A": "A new photo",
+      "B": "Evidence of meeting recency requirements and continued competence",
+      "C": "A gift",
+      "D": "No renewal"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part IV — Personnel Licensing",
+    "explanation": "As per \"CARs for the AME, CAR Part IV – Personnel Licensing, page 32\", AME license renewal requires evidence of meeting recency requirements and demonstrating continued competence.",
+    "source": "CARs for the AME, CAR Part IV – Personnel Licensing, page 32",
+    "category": "CARs Part IV – Personnel Licensing"
+  },
+  {
+    "id": 33,
+    "question": "What is assessed in AME knowledge examinations?",
+    "options": {
+      "A": "Geography",
+      "B": "Understanding of maintenance theory, regulations, and aircraft systems",
+      "C": "Sports",
+      "D": "No assessment"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part IV — Personnel Licensing",
+    "explanation": "As per \"CARs for the AME, CAR Part IV – Personnel Licensing, page 33\", AME knowledge examinations assess understanding of maintenance theory, applicable regulations, and aircraft systems.",
+    "source": "CARs for the AME, CAR Part IV – Personnel Licensing, page 33",
+    "category": "CARs Part IV – Personnel Licensing"
+  },
+  {
+    "id": 34,
+    "question": "How is experience credited in AME licensing?",
+    "options": {
+      "A": "By estimation",
+      "B": "Through logged hours of qualified maintenance work",
+      "C": "By weight",
+      "D": "Not credited"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part IV — Personnel Licensing",
+    "explanation": "As per \"CARs for the AME, CAR Part IV – Personnel Licensing, page 34\", experience is credited through logged hours of qualified maintenance work performed under supervision.",
+    "source": "CARs for the AME, CAR Part IV – Personnel Licensing, page 34",
+    "category": "CARs Part IV – Personnel Licensing"
+  },
+  {
+    "id": 35,
+    "question": "What purpose does recency serve in AME licensing?",
+    "options": {
+      "A": "To count time",
+      "B": "To ensure ongoing skill maintenance through recent maintenance activities",
+      "C": "To measure distance",
+      "D": "No purpose"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part IV — Personnel Licensing",
+    "explanation": "As per \"CARs for the AME, CAR Part IV – Personnel Licensing, page 35\", recency serves to ensure ongoing skill maintenance by requiring recent performance of maintenance activities.",
+    "source": "CARs for the AME, CAR Part IV – Personnel Licensing, page 35",
+    "category": "CARs Part IV – Personnel Licensing"
+  },
+  {
+    "id": 36,
+    "question": "What must be produced by an AME per CAR 103.02?",
+    "options": {
+      "A": "Art supplies",
+      "B": "Valid AME license and associated documentation",
+      "C": "Food items",
+      "D": "Nothing"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part IV — Personnel Licensing",
+    "explanation": "As per \"CARs for the AME, CAR Part IV – Personnel Licensing, page 36\", per CAR 103.02, an AME must produce the valid AME license and associated documentation upon request.",
+    "source": "CARs for the AME, CAR Part IV – Personnel Licensing, page 36",
+    "category": "CARs Part IV – Personnel Licensing"
+  },
+  {
+    "id": 37,
+    "question": "What conditions govern AME privilege exercise?",
+    "options": {
+      "A": "Weather conditions",
+      "B": "Compliance with license endorsements and maintenance organization approvals",
+      "C": "Clothing choices",
+      "D": "No conditions"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part IV — Personnel Licensing",
+    "explanation": "As per \"CARs for the AME, CAR Part IV – Personnel Licensing, page 37\", AME privilege exercise is governed by compliance with license endorsements and approvals from the maintenance organization.",
+    "source": "CARs for the AME, CAR Part IV – Personnel Licensing, page 37",
+    "category": "CARs Part IV – Personnel Licensing"
+  },
+  {
+    "id": 38,
+    "question": "In what way does AME licensing differ from ACA?",
+    "options": {
+      "A": "No difference",
+      "B": "AME provides broader certification authority compared to ACA's limited scope",
+      "C": "ACA is broader",
+      "D": "Same"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part IV — Personnel Licensing",
+    "explanation": "As per \"CARs for the AME, CAR Part IV – Personnel Licensing, page 38\", AME licensing provides broader certification authority for maintenance, differing from ACA's more limited scope.",
+    "source": "CARs for the AME, CAR Part IV – Personnel Licensing, page 38",
+    "category": "CARs Part IV – Personnel Licensing"
+  },
+  {
+    "id": 39,
+    "question": "What is evaluated in AME skill testing?",
+    "options": {
+      "A": "Writing ability",
+      "B": "Hands-on performance of maintenance tasks",
+      "C": "Singing",
+      "D": "No evaluation"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part IV — Personnel Licensing",
+    "explanation": "As per \"CARs for the AME, CAR Part IV – Personnel Licensing, page 39\", AME skill testing evaluates hands-on performance of maintenance tasks on aircraft components.",
+    "source": "CARs for the AME, CAR Part IV – Personnel Licensing, page 39",
+    "category": "CARs Part IV – Personnel Licensing"
+  },
+  {
+    "id": 40,
+    "question": "What determines the validity of AME privileges?",
+    "options": {
+      "A": "The weather",
+      "B": "The currency of the license and adherence to recency rules",
+      "C": "The color of the license",
+      "D": "Invalid always"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part IV — Personnel Licensing",
+    "explanation": "As per \"CARs for the AME, CAR Part IV – Personnel Licensing, page 40\", the validity of AME privileges is determined by the currency of the license and adherence to recency requirements.",
+    "source": "CARs for the AME, CAR Part IV – Personnel Licensing, page 40",
+    "category": "CARs Part IV – Personnel Licensing"
+  }
+]

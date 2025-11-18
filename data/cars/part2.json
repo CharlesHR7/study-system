@@ -1,0 +1,377 @@
+[
+  {
+    "id": 1,
+    "question": "What is the primary focus of CAR Part II?",
+    "options": {
+      "A": "General maintenance procedures",
+      "B": "Aircraft identification, registration, and operation of leased aircraft",
+      "C": "Pilot licensing requirements",
+      "D": "Air traffic control regulations"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part II — Aircraft Registration and Markings",
+    "explanation": "As per \"CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 1\", the primary focus is aircraft identification, registration, and operation of leased aircraft by a non-registered owner.",
+    "source": "CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 1",
+    "category": "CARs Part II – Aircraft Registration and Markings"
+  },
+  {
+    "id": 2,
+    "question": "According to CAR 202, what is required for aircraft registration?",
+    "options": {
+      "A": "Only the owner's name",
+      "B": "Application to the competent authority with necessary documents",
+      "C": "A pilot's license",
+      "D": "Fuel capacity details"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part II — Aircraft Registration and Markings",
+    "explanation": "As per \"CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 2\", CAR 202 requires an application to the competent authority for aircraft registration, including necessary documents.",
+    "source": "CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 2",
+    "category": "CARs Part II – Aircraft Registration and Markings"
+  },
+  {
+    "id": 3,
+    "question": "What does CAR 222 specify regarding aircraft markings?",
+    "options": {
+      "A": "Engine specifications",
+      "B": "The display of registration marks on the aircraft",
+      "C": "Passenger seating",
+      "D": "Cargo loading"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part II — Aircraft Registration and Markings",
+    "explanation": "As per \"CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 3\", CAR 222 specifies the requirements for the display of registration marks on the aircraft.",
+    "source": "CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 3",
+    "category": "CARs Part II – Aircraft Registration and Markings"
+  },
+  {
+    "id": 4,
+    "question": "What is a Certificate of Registration?",
+    "options": {
+      "A": "A maintenance certificate",
+      "B": "A document issued by the competent authority evidencing registration",
+      "C": "A pilot's qualification",
+      "D": "An insurance policy"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part II — Aircraft Registration and Markings",
+    "explanation": "As per \"CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 4\", the Certificate of Registration is a document issued by the competent authority evidencing that the aircraft is registered.",
+    "source": "CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 4",
+    "category": "CARs Part II – Aircraft Registration and Markings"
+  },
+  {
+    "id": 5,
+    "question": "What are the requirements for transfers of registration?",
+    "options": {
+      "A": "No requirements needed",
+      "B": "Notification to the competent authority and surrender of the certificate",
+      "C": "Only the owner's approval",
+      "D": "A new engine"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part II — Aircraft Registration and Markings",
+    "explanation": "As per \"CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 5\", transfers of registration require notification to the competent authority and surrender of the Certificate of Registration.",
+    "source": "CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 5",
+    "category": "CARs Part II – Aircraft Registration and Markings"
+  },
+  {
+    "id": 6,
+    "question": "What is a Provisional Certificate of Registration?",
+    "options": {
+      "A": "A permanent certificate",
+      "B": "A temporary certificate issued pending full registration",
+      "C": "A maintenance approval",
+      "D": "A flight permit"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part II — Aircraft Registration and Markings",
+    "explanation": "As per \"CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 6\", a Provisional Certificate of Registration is a temporary certificate issued by the competent authority pending the issue of a full Certificate of Registration.",
+    "source": "CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 6",
+    "category": "CARs Part II – Aircraft Registration and Markings"
+  },
+  {
+    "id": 7,
+    "question": "What conditions must be met for aircraft registration?",
+    "options": {
+      "A": "Only if it's new",
+      "B": "The aircraft must be owned by a qualified person and meet eligibility criteria",
+      "C": "It must be painted red",
+      "D": "No conditions apply"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part II — Aircraft Registration and Markings",
+    "explanation": "As per \"CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 7\", aircraft registration requires that the aircraft is owned by a qualified person and meets the eligibility criteria set by the competent authority.",
+    "source": "CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 7",
+    "category": "CARs Part II – Aircraft Registration and Markings"
+  },
+  {
+    "id": 8,
+    "question": "How must registration marks be displayed on the aircraft?",
+    "options": {
+      "A": "Only on the wings",
+      "B": "In a manner that is clearly visible and conforms to specified dimensions",
+      "C": "Inside the cockpit",
+      "D": "On the engine"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part II — Aircraft Registration and Markings",
+    "explanation": "As per \"CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 8\", registration marks must be displayed on the aircraft in a manner that is clearly visible and conforms to the specified dimensions and format.",
+    "source": "CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 8",
+    "category": "CARs Part II – Aircraft Registration and Markings"
+  },
+  {
+    "id": 9,
+    "question": "What is the height requirement for registration marks?",
+    "options": {
+      "A": "No specific height",
+      "B": "At least 30 cm for most aircraft",
+      "C": "1 meter",
+      "D": "Depends on the pilot"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part II — Aircraft Registration and Markings",
+    "explanation": "As per \"CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 9\", the height of registration marks must be at least 30 cm for most aircraft, with specific requirements for different types.",
+    "source": "CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 9",
+    "category": "CARs Part II – Aircraft Registration and Markings"
+  },
+  {
+    "id": 10,
+    "question": "What is the width requirement for registration marks?",
+    "options": {
+      "A": "As wide as possible",
+      "B": "Two-thirds of the height",
+      "C": "Half the height",
+      "D": "No width specified"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part II — Aircraft Registration and Markings",
+    "explanation": "As per \"CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 10\", the width of registration marks must be two-thirds of the height.",
+    "source": "CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 10",
+    "category": "CARs Part II – Aircraft Registration and Markings"
+  },
+  {
+    "id": 11,
+    "question": "What format must registration marks follow?",
+    "options": {
+      "A": "Any format",
+      "B": "Block letters and numbers without ornamentation",
+      "C": "Curved and decorative",
+      "D": "In different colors"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part II — Aircraft Registration and Markings",
+    "explanation": "As per \"CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 11\", registration marks must be in block letters and numbers without ornamentation.",
+    "source": "CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 11",
+    "category": "CARs Part II – Aircraft Registration and Markings"
+  },
+  {
+    "id": 12,
+    "question": "Where must registration marks be placed on the aircraft?",
+    "options": {
+      "A": "Only on the tail",
+      "B": "On the fuselage, wings, or other specified locations",
+      "C": "Inside the cabin",
+      "D": "On the landing gear"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part II — Aircraft Registration and Markings",
+    "explanation": "As per \"CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 12\", registration marks must be placed on the fuselage, wings, or other locations as specified by the regulations.",
+    "source": "CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 12",
+    "category": "CARs Part II – Aircraft Registration and Markings"
+  },
+  {
+    "id": 13,
+    "question": "What is required for the operation of a leased aircraft by a non-registered owner?",
+    "options": {
+      "A": "No special requirements",
+      "B": "Permission from the competent authority and compliance with conditions",
+      "C": "Only the lessee's approval",
+      "D": "A new registration"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part II — Aircraft Registration and Markings",
+    "explanation": "As per \"CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 13\", the operation of a leased aircraft by a non-registered owner requires permission from the competent authority and compliance with specified conditions.",
+    "source": "CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 13",
+    "category": "CARs Part II – Aircraft Registration and Markings"
+  },
+  {
+    "id": 14,
+    "question": "What must be displayed on a leased aircraft?",
+    "options": {
+      "A": "The owner's name only",
+      "B": "The registration marks of the lessor or lessee as per regulations",
+      "C": "No marks",
+      "D": "Temporary stickers"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part II — Aircraft Registration and Markings",
+    "explanation": "As per \"CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 14\", a leased aircraft must display the registration marks of the lessor or lessee in accordance with the regulations.",
+    "source": "CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 14",
+    "category": "CARs Part II – Aircraft Registration and Markings"
+  },
+  {
+    "id": 15,
+    "question": "What is an Interim Certificate of Registration?",
+    "options": {
+      "A": "A final certificate",
+      "B": "A certificate issued for a limited period during registration changes",
+      "C": "A maintenance certificate",
+      "D": "A pilot's license"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part II — Aircraft Registration and Markings",
+    "explanation": "As per \"CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 15\", an Interim Certificate of Registration is issued for a limited period during changes in registration.",
+    "source": "CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 15",
+    "category": "CARs Part II – Aircraft Registration and Markings"
+  },
+  {
+    "id": 16,
+    "question": "Who is eligible to register an aircraft?",
+    "options": {
+      "A": "Anyone",
+      "B": "Qualified persons or entities as defined by the competent authority",
+      "C": "Only governments",
+      "D": "Only airlines"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part II — Aircraft Registration and Markings",
+    "explanation": "As per \"CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 16\", eligibility for aircraft registration is limited to qualified persons or entities as defined by the competent authority.",
+    "source": "CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 16",
+    "category": "CARs Part II – Aircraft Registration and Markings"
+  },
+  {
+    "id": 17,
+    "question": "What happens if registration marks are not displayed correctly?",
+    "options": {
+      "A": "Nothing",
+      "B": "The aircraft may not be operated",
+      "C": "A fine is issued",
+      "D": "The pilot is suspended"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part II — Aircraft Registration and Markings",
+    "explanation": "As per \"CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 17\", if registration marks are not displayed correctly, the aircraft may not be operated until compliance is achieved.",
+    "source": "CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 17",
+    "category": "CARs Part II – Aircraft Registration and Markings"
+  },
+  {
+    "id": 18,
+    "question": "What is the purpose of aircraft markings?",
+    "options": {
+      "A": "Decoration",
+      "B": "To identify the aircraft and ensure traceability",
+      "C": "To indicate fuel level",
+      "D": "For advertising"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part II — Aircraft Registration and Markings",
+    "explanation": "As per \"CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 18\", the purpose of aircraft markings is to identify the aircraft and ensure its traceability.",
+    "source": "CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 18",
+    "category": "CARs Part II – Aircraft Registration and Markings"
+  },
+  {
+    "id": 19,
+    "question": "What conditions apply to leased aircraft operations?",
+    "options": {
+      "A": "No conditions",
+      "B": "The lessee must comply with operational requirements and maintain the aircraft",
+      "C": "Only short flights",
+      "D": "No maintenance needed"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part II — Aircraft Registration and Markings",
+    "explanation": "As per \"CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 19\", for leased aircraft, the lessee must comply with operational requirements and ensure the aircraft is maintained properly.",
+    "source": "CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 19",
+    "category": "CARs Part II – Aircraft Registration and Markings"
+  },
+  {
+    "id": 20,
+    "question": "What is required for deregistration of an aircraft?",
+    "options": {
+      "A": "Just removing marks",
+      "B": "Application to the competent authority and surrender of certificates",
+      "C": "Selling it",
+      "D": "Painting over marks"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part II — Aircraft Registration and Markings",
+    "explanation": "As per \"CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 20\", deregistration requires an application to the competent authority and surrender of the Certificate of Registration.",
+    "source": "CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 20",
+    "category": "CARs Part II – Aircraft Registration and Markings"
+  },
+  {
+    "id": 21,
+    "question": "What must be included in the registration application?",
+    "options": {
+      "A": "Only the aircraft type",
+      "B": "Details of ownership, aircraft description, and other required information",
+      "C": "Pilot's resume",
+      "D": "Fuel receipts"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part II — Aircraft Registration and Markings",
+    "explanation": "As per \"CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 21\", the registration application must include details of ownership, aircraft description, and other required information.",
+    "source": "CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 21",
+    "category": "CARs Part II – Aircraft Registration and Markings"
+  },
+  {
+    "id": 22,
+    "question": "How are registration marks colored?",
+    "options": {
+      "A": "Any color",
+      "B": "In a color that contrasts with the background",
+      "C": "Always black",
+      "D": "Always white"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part II — Aircraft Registration and Markings",
+    "explanation": "As per \"CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 22\", registration marks must be in a color that contrasts with the background for visibility.",
+    "source": "CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 22",
+    "category": "CARs Part II – Aircraft Registration and Markings"
+  },
+  {
+    "id": 23,
+    "question": "What is the significance of the national mark in aircraft registration?",
+    "options": {
+      "A": "It indicates the country of manufacture",
+      "B": "It precedes the registration number to identify the country of registration",
+      "C": "It shows the aircraft type",
+      "D": "It is optional"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part II — Aircraft Registration and Markings",
+    "explanation": "As per \"CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 23\", the national mark precedes the registration number to identify the country of registration.",
+    "source": "CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 23",
+    "category": "CARs Part II – Aircraft Registration and Markings"
+  },
+  {
+    "id": 24,
+    "question": "What must be ensured regarding the visibility of registration marks?",
+    "options": {
+      "A": "They are only visible from the ground",
+      "B": "They must be clearly legible from a distance",
+      "C": "They can be obscured",
+      "D": "No visibility required"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part II — Aircraft Registration and Markings",
+    "explanation": "As per \"CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 24\", registration marks must be clearly legible from a distance to ensure identification.",
+    "source": "CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 24",
+    "category": "CARs Part II – Aircraft Registration and Markings"
+  },
+  {
+    "id": 25,
+    "question": "What is required for the maintenance of registration marks?",
+    "options": {
+      "A": "They can be removed",
+      "B": "They must be kept clean and legible at all times",
+      "C": "Only during flights",
+      "D": "No maintenance needed"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part II — Aircraft Registration and Markings",
+    "explanation": "As per \"CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 25\", registration marks must be kept clean and legible at all times to maintain compliance.",
+    "source": "CARs for the AME, CAR Part II – Aircraft Registration and Markings, page 25",
+    "category": "CARs Part II – Aircraft Registration and Markings"
+  }
+]

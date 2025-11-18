@@ -1,0 +1,902 @@
+[
+  {
+    "id": 1,
+    "question": "According to CAR Part VI – Subpart 5 – Aircraft Requirements, what must be ensured for aircraft equipment and maintenance?",
+    "options": {
+      "A": "Only visual inspections are required",
+      "B": "Aircraft must be maintained in accordance with approved standards",
+      "C": "Maintenance can be performed by unqualified personnel",
+      "D": "Equipment requirements are optional"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part VI – Subpart 5 – Aircraft Requirements",
+    "explanation": "As per \"CARs for the AME, CAR Part VI – Subpart 5 – Aircraft Requirements, page 1\", aircraft must be maintained in accordance with approved standards to ensure safety and compliance.",
+    "source": "CARs for the AME, CAR Part VI – Subpart 5 – Aircraft Requirements, page 1",
+    "category": "CAR Part VI – Subpart 5 – Aircraft Requirements"
+  },
+  {
+    "id": 2,
+    "question": "What is required for the maintenance of aircraft as per CAR Part VI – Subpart 5 – Aircraft Requirements?",
+    "options": {
+      "A": "Random checks only",
+      "B": "Scheduled inspections and maintenance",
+      "C": "No documentation needed",
+      "D": "Maintenance by pilots only"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part VI – Subpart 5 – Aircraft Requirements",
+    "explanation": "As per \"CARs for the AME, CAR Part VI – Subpart 5 – Aircraft Requirements, page 1\", scheduled inspections and maintenance are required for aircraft to meet operational standards.",
+    "source": "CARs for the AME, CAR Part VI – Subpart 5 – Aircraft Requirements, page 1",
+    "category": "CAR Part VI – Subpart 5 – Aircraft Requirements"
+  },
+  {
+    "id": 3,
+    "question": "In CAR Part VI – Subpart 5 – Aircraft Requirements, what must be provided for aircraft operations?",
+    "options": {
+      "A": "Minimal equipment",
+      "B": "Required instruments and equipment",
+      "C": "Optional safety features",
+      "D": "No specific requirements"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part VI – Subpart 5 – Aircraft Requirements",
+    "explanation": "As per \"CARs for the AME, CAR Part VI – Subpart 5 – Aircraft Requirements, page 1\", required instruments and equipment must be provided for safe aircraft operations.",
+    "source": "CARs for the AME, CAR Part VI – Subpart 5 – Aircraft Requirements, page 1",
+    "category": "CAR Part VI – Subpart 5 – Aircraft Requirements"
+  },
+  {
+    "id": 4,
+    "question": "What is emphasized in CAR Part VI – Subpart 5 – Aircraft Requirements regarding flight rules?",
+    "options": {
+      "A": "Flexibility in rules",
+      "B": "Compliance with operating and flight rules",
+      "C": "Ignoring maintenance",
+      "D": "Pilot discretion only"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part VI – Subpart 5 – Aircraft Requirements",
+    "explanation": "As per \"CARs for the AME, CAR Part VI – Subpart 5 – Aircraft Requirements, page 1\", compliance with operating and flight rules is essential for aircraft safety.",
+    "source": "CARs for the AME, CAR Part VI – Subpart 5 – Aircraft Requirements, page 1",
+    "category": "CAR Part VI – Subpart 5 – Aircraft Requirements"
+  },
+  {
+    "id": 5,
+    "question": "According to CAR Part VI – Subpart 5 – Aircraft Requirements, what must be maintained for aircraft?",
+    "options": {
+      "A": "Only exterior appearance",
+      "B": "Airworthiness and equipment standards",
+      "C": "Fuel levels only",
+      "D": "Passenger comfort"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part VI – Subpart 5 – Aircraft Requirements",
+    "explanation": "As per \"CARs for the AME, CAR Part VI – Subpart 5 – Aircraft Requirements, page 1\", airworthiness and equipment standards must be maintained for aircraft.",
+    "source": "CARs for the AME, CAR Part VI – Subpart 5 – Aircraft Requirements, page 1",
+    "category": "CAR Part VI – Subpart 5 – Aircraft Requirements"
+  },
+  {
+    "id": 6,
+    "question": "What is required for aircraft certification in CAR Part VI – Subpart 5 – Aircraft Requirements?",
+    "options": {
+      "A": "No certification needed",
+      "B": "Compliance with certification standards",
+      "C": "Self-certification",
+      "D": "Optional checks"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part VI – Subpart 5 – Aircraft Requirements",
+    "explanation": "As per \"CARs for the AME, CAR Part VI – Subpart 5 – Aircraft Requirements, page 1\", compliance with certification standards is required for aircraft.",
+    "source": "CARs for the AME, CAR Part VI – Subpart 5 – Aircraft Requirements, page 1",
+    "category": "CAR Part VI – Subpart 5 – Aircraft Requirements"
+  },
+  {
+    "id": 7,
+    "question": "In CAR Part VI – Subpart 5 – Aircraft Requirements, what must be ensured for flight safety?",
+    "options": {
+      "A": "Minimal precautions",
+      "B": "Proper maintenance and equipment",
+      "C": "Pilot training only",
+      "D": "Weather checks only"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part VI – Subpart 5 – Aircraft Requirements",
+    "explanation": "As per \"CARs for the AME, CAR Part VI – Subpart 5 – Aircraft Requirements, page 1\", proper maintenance and equipment must be ensured for flight safety.",
+    "source": "CARs for the AME, CAR Part VI – Subpart 5 – Aircraft Requirements, page 1",
+    "category": "CAR Part VI – Subpart 5 – Aircraft Requirements"
+  },
+  {
+    "id": 8,
+    "question": "What is mandated for aircraft in CAR Part VI – Subpart 5 – Aircraft Requirements?",
+    "options": {
+      "A": "Optional upgrades",
+      "B": "Regular maintenance schedules",
+      "C": "No schedules",
+      "D": "Pilot discretion"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part VI – Subpart 5 – Aircraft Requirements",
+    "explanation": "As per \"CARs for the AME, CAR Part VI – Subpart 5 – Aircraft Requirements, page 1\", regular maintenance schedules are mandated for aircraft.",
+    "source": "CARs for the AME, CAR Part VI – Subpart 5 – Aircraft Requirements, page 1",
+    "category": "CAR Part VI – Subpart 5 – Aircraft Requirements"
+  },
+  {
+    "id": 9,
+    "question": "According to CAR Part VI – Subpart 5 – Aircraft Requirements, what must be checked on aircraft?",
+    "options": {
+      "A": "Only fuel",
+      "B": "Instruments and systems",
+      "C": "Passenger seats",
+      "D": "Nothing specific"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part VI – Subpart 5 – Aircraft Requirements",
+    "explanation": "As per \"CARs for the AME, CAR Part VI – Subpart 5 – Aircraft Requirements, page 1\", instruments and systems must be checked on aircraft.",
+    "source": "CARs for the AME, CAR Part VI – Subpart 5 – Aircraft Requirements, page 1",
+    "category": "CAR Part VI – Subpart 5 – Aircraft Requirements"
+  },
+  {
+    "id": 10,
+    "question": "What is required for aircraft documentation in CAR Part VI – Subpart 5 – Aircraft Requirements?",
+    "options": {
+      "A": "No documentation",
+      "B": "Maintenance records and logs",
+      "C": "Passenger lists",
+      "D": "Flight plans only"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part VI – Subpart 5 – Aircraft Requirements",
+    "explanation": "As per \"CARs for the AME, CAR Part VI – Subpart 5 – Aircraft Requirements, page 1\", maintenance records and logs are required for aircraft documentation.",
+    "source": "CARs for the AME, CAR Part VI – Subpart 5 – Aircraft Requirements, page 1",
+    "category": "CAR Part VI – Subpart 5 – Aircraft Requirements"
+  },
+  {
+    "id": 11,
+    "question": "In CAR Part VI – Subpart 5 – Aircraft Requirements, what must be complied with for aircraft?",
+    "options": {
+      "A": "Local laws only",
+      "B": "Regulatory standards",
+      "C": "Company policies",
+      "D": "No compliance needed"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part VI – Subpart 5 – Aircraft Requirements",
+    "explanation": "As per \"CARs for the AME, CAR Part VI – Subpart 5 – Aircraft Requirements, page 1\", regulatory standards must be complied with for aircraft.",
+    "source": "CARs for the AME, CAR Part VI – Subpart 5 – Aircraft Requirements, page 1",
+    "category": "CAR Part VI – Subpart 5 – Aircraft Requirements"
+  },
+  {
+    "id": 12,
+    "question": "What is essential for aircraft operations per CAR Part VI – Subpart 5 – Aircraft Requirements?",
+    "options": {
+      "A": "Entertainment systems",
+      "B": "Safety equipment",
+      "C": "Luxury features",
+      "D": "No essentials"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part VI – Subpart 5 – Aircraft Requirements",
+    "explanation": "As per \"CARs for the AME, CAR Part VI – Subpart 5 – Aircraft Requirements, page 1\", safety equipment is essential for aircraft operations.",
+    "source": "CARs for the AME, CAR Part VI – Subpart 5 – Aircraft Requirements, page 1",
+    "category": "CAR Part VI – Subpart 5 – Aircraft Requirements"
+  },
+  {
+    "id": 13,
+    "question": "According to CAR Part VI – Subpart 5 – Aircraft Requirements, what must be maintained on aircraft?",
+    "options": {
+      "A": "Only interiors",
+      "B": "Structural integrity",
+      "C": "Paint jobs",
+      "D": "Nothing"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part VI – Subpart 5 – Aircraft Requirements",
+    "explanation": "As per \"CARs for the AME, CAR Part VI – Subpart 5 – Aircraft Requirements, page 1\", structural integrity must be maintained on aircraft.",
+    "source": "CARs for the AME, CAR Part VI – Subpart 5 – Aircraft Requirements, page 1",
+    "category": "CAR Part VI – Subpart 5 – Aircraft Requirements"
+  },
+  {
+    "id": 14,
+    "question": "What is required for aircraft inspections in CAR Part VI – Subpart 5 – Aircraft Requirements?",
+    "options": {
+      "A": "Annual only",
+      "B": "Regular and thorough inspections",
+      "C": "No inspections",
+      "D": "Pilot checks"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part VI – Subpart 5 – Aircraft Requirements",
+    "explanation": "As per \"CARs for the AME, CAR Part VI – Subpart 5 – Aircraft Requirements, page 1\", regular and thorough inspections are required for aircraft.",
+    "source": "CARs for the AME, CAR Part VI – Subpart 5 – Aircraft Requirements, page 1",
+    "category": "CAR Part VI – Subpart 5 – Aircraft Requirements"
+  },
+  {
+    "id": 15,
+    "question": "In CAR Part VI – Subpart 5 – Aircraft Requirements, what must be ensured for equipment?",
+    "options": {
+      "A": "Latest models",
+      "B": "Functionality and compliance",
+      "C": "Aesthetics",
+      "D": "No requirements"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part VI – Subpart 5 – Aircraft Requirements",
+    "explanation": "As per \"CARs for the AME, CAR Part VI – Subpart 5 – Aircraft Requirements, page 1\", functionality and compliance must be ensured for equipment.",
+    "source": "CARs for the AME, CAR Part VI – Subpart 5 – Aircraft Requirements, page 1",
+    "category": "CAR Part VI – Subpart 5 – Aircraft Requirements"
+  },
+  {
+    "id": 16,
+    "question": "What is mandated for aircraft maintenance in CAR Part VI – Subpart 5 – Aircraft Requirements?",
+    "options": {
+      "A": "DIY repairs",
+      "B": "Qualified personnel",
+      "C": "No mandates",
+      "D": "Passenger involvement"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part VI – Subpart 5 – Aircraft Requirements",
+    "explanation": "As per \"CARs for the AME, CAR Part VI – Subpart 5 – Aircraft Requirements, page 1\", qualified personnel are mandated for aircraft maintenance.",
+    "source": "CARs for the AME, CAR Part VI – Subpart 5 – Aircraft Requirements, page 1",
+    "category": "CAR Part VI – Subpart 5 – Aircraft Requirements"
+  },
+  {
+    "id": 17,
+    "question": "According to CAR Part VI – Subpart 5 – Aircraft Requirements, what must be checked before flight?",
+    "options": {
+      "A": "Weather only",
+      "B": "Aircraft condition",
+      "C": "Fuel only",
+      "D": "Nothing"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part VI – Subpart 5 – Aircraft Requirements",
+    "explanation": "As per \"CARs for the AME, CAR Part VI – Subpart 5 – Aircraft Requirements, page 1\", aircraft condition must be checked before flight.",
+    "source": "CARs for the AME, CAR Part VI – Subpart 5 – Aircraft Requirements, page 1",
+    "category": "CAR Part VI – Subpart 5 – Aircraft Requirements"
+  },
+  {
+    "id": 18,
+    "question": "What is required for aircraft in CAR Part VI – Subpart 5 – Aircraft Requirements?",
+    "options": {
+      "A": "No requirements",
+      "B": "Compliance with standards",
+      "C": "Optional features",
+      "D": "Pilot choice"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR Part VI – Subpart 5 – Aircraft Requirements",
+    "explanation": "As per \"CARs for the AME, CAR Part VI – Subpart 5 – Aircraft Requirements, page 1\", compliance with standards is required for aircraft.",
+    "source": "CARs for the AME, CAR Part VI – Subpart 5 – Aircraft Requirements, page 1",
+    "category": "CAR Part VI – Subpart 5 – Aircraft Requirements"
+  },
+  {
+    "id": 19,
+    "question": "In CAR 625 – Aircraft Equipment and Maintenance Standard, what is the purpose of the standard?",
+    "options": {
+      "A": "To ignore maintenance",
+      "B": "To establish equipment and maintenance requirements",
+      "C": "To allow unsafe operations",
+      "D": "No purpose"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR 625 – Aircraft Equipment and Maintenance Standard",
+    "explanation": "As per \"CARs for the AME, CAR 625 – Aircraft Equipment and Maintenance Standard, page 1\", the purpose is to establish equipment and maintenance requirements for aircraft.",
+    "source": "CARs for the AME, CAR 625 – Aircraft Equipment and Maintenance Standard, page 1",
+    "category": "CAR 625 – Aircraft Equipment and Maintenance Standard"
+  },
+  {
+    "id": 20,
+    "question": "What does CAR 625 – Aircraft Equipment and Maintenance Standard cover?",
+    "options": {
+      "A": "Only fuel systems",
+      "B": "Equipment and maintenance standards",
+      "C": "Passenger services",
+      "D": "Nothing specific"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR 625 – Aircraft Equipment and Maintenance Standard",
+    "explanation": "As per \"CARs for the AME, CAR 625 – Aircraft Equipment and Maintenance Standard, page 1\", it covers equipment and maintenance standards for aircraft.",
+    "source": "CARs for the AME, CAR 625 – Aircraft Equipment and Maintenance Standard, page 1",
+    "category": "CAR 625 – Aircraft Equipment and Maintenance Standard"
+  },
+  {
+    "id": 21,
+    "question": "What is the focus of CAR 625 – Aircraft Equipment and Maintenance Standard?",
+    "options": {
+      "A": "Passenger comfort",
+      "B": "Equipment and maintenance standards",
+      "C": "Flight routes",
+      "D": "No focus"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR 625 – Aircraft Equipment and Maintenance Standard",
+    "explanation": "As per \"CARs for the AME, CAR 625 – Aircraft Equipment and Maintenance Standard, page 1\", the focus is on equipment and maintenance standards for aircraft.",
+    "source": "CARs for the AME, CAR 625 – Aircraft Equipment and Maintenance Standard, page 1",
+    "category": "CAR 625 – Aircraft Equipment and Maintenance Standard"
+  },
+  {
+    "id": 22,
+    "question": "According to CAR 625 – Aircraft Equipment and Maintenance Standard, what must be ensured?",
+    "options": {
+      "A": "Only visual appeal",
+      "B": "Compliance with maintenance standards",
+      "C": "Optional checks",
+      "D": "Nothing"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR 625 – Aircraft Equipment and Maintenance Standard",
+    "explanation": "As per \"CARs for the AME, CAR 625 – Aircraft Equipment and Maintenance Standard, page 1\", compliance with maintenance standards must be ensured.",
+    "source": "CARs for the AME, CAR 625 – Aircraft Equipment and Maintenance Standard, page 1",
+    "category": "CAR 625 – Aircraft Equipment and Maintenance Standard"
+  },
+  {
+    "id": 23,
+    "question": "In CAR 625 – Appendix A – Elementary Work, what is defined as elementary work?",
+    "options": {
+      "A": "Complex repairs",
+      "B": "Simple maintenance tasks",
+      "C": "Overhaul operations",
+      "D": "No definition"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR 625 – Appendix A – Elementary Work",
+    "explanation": "As per \"CARs for the AME, CAR 625 – Appendix A – Elementary Work, page 1\", elementary work is defined as simple maintenance tasks.",
+    "source": "CARs for the AME, CAR 625 – Appendix A – Elementary Work, page 1",
+    "category": "CAR 625 – Appendix A – Elementary Work"
+  },
+  {
+    "id": 24,
+    "question": "What tasks are included in CAR 625 – Appendix A – Elementary Work?",
+    "options": {
+      "A": "Major overhauls",
+      "B": "Basic checks and replacements",
+      "C": "Engine rebuilds",
+      "D": "Nothing specific"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR 625 – Appendix A – Elementary Work",
+    "explanation": "As per \"CARs for the AME, CAR 625 – Appendix A – Elementary Work, page 1\", basic checks and replacements are included in elementary work.",
+    "source": "CARs for the AME, CAR 625 – Appendix A – Elementary Work, page 1",
+    "category": "CAR 625 – Appendix A – Elementary Work"
+  },
+  {
+    "id": 25,
+    "question": "According to CAR 625 – Appendix A – Elementary Work, who can perform elementary work?",
+    "options": {
+      "A": "Unqualified personnel",
+      "B": "Trained operators",
+      "C": "Pilots only",
+      "D": "No one"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR 625 – Appendix A – Elementary Work",
+    "explanation": "As per \"CARs for the AME, CAR 625 – Appendix A – Elementary Work, page 1\", trained operators can perform elementary work.",
+    "source": "CARs for the AME, CAR 625 – Appendix A – Elementary Work, page 1",
+    "category": "CAR 625 – Appendix A – Elementary Work"
+  },
+  {
+    "id": 26,
+    "question": "What is the scope of elementary work in CAR 625 – Appendix A – Elementary Work?",
+    "options": {
+      "A": "All maintenance",
+      "B": "Limited to simple tasks",
+      "C": "Complex systems",
+      "D": "No scope"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR 625 – Appendix A – Elementary Work",
+    "explanation": "As per \"CARs for the AME, CAR 625 – Appendix A – Elementary Work, page 1\", the scope is limited to simple tasks.",
+    "source": "CARs for the AME, CAR 625 – Appendix A – Elementary Work, page 1",
+    "category": "CAR 625 – Appendix A – Elementary Work"
+  },
+  {
+    "id": 27,
+    "question": "In CAR 625 – Appendix A – Elementary Work, what must be documented?",
+    "options": {
+      "A": "All tasks",
+      "B": "Elementary work performed",
+      "C": "Passenger feedback",
+      "D": "Nothing"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR 625 – Appendix A – Elementary Work",
+    "explanation": "As per \"CARs for the AME, CAR 625 – Appendix A – Elementary Work, page 1\", elementary work performed must be documented.",
+    "source": "CARs for the AME, CAR 625 – Appendix A – Elementary Work, page 1",
+    "category": "CAR 625 – Appendix A – Elementary Work"
+  },
+  {
+    "id": 28,
+    "question": "What is required for elementary work in CAR 625 – Appendix A – Elementary Work?",
+    "options": {
+      "A": "Special tools",
+      "B": "Basic training",
+      "C": "No requirements",
+      "D": "Advanced certification"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR 625 – Appendix A – Elementary Work",
+    "explanation": "As per \"CARs for the AME, CAR 625 – Appendix A – Elementary Work, page 1\", basic training is required for elementary work.",
+    "source": "CARs for the AME, CAR 625 – Appendix A – Elementary Work, page 1",
+    "category": "CAR 625 – Appendix A – Elementary Work"
+  },
+  {
+    "id": 29,
+    "question": "According to CAR 625 – Appendix A – Elementary Work, what is not included in elementary work?",
+    "options": {
+      "A": "Simple checks",
+      "B": "Major repairs",
+      "C": "Basic replacements",
+      "D": "Documentation"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR 625 – Appendix A – Elementary Work",
+    "explanation": "As per \"CARs for the AME, CAR 625 – Appendix A – Elementary Work, page 1\", major repairs are not included in elementary work.",
+    "source": "CARs for the AME, CAR 625 – Appendix A – Elementary Work, page 1",
+    "category": "CAR 625 – Appendix A – Elementary Work"
+  },
+  {
+    "id": 30,
+    "question": "What is the purpose of CAR 625 – Appendix A – Elementary Work?",
+    "options": {
+      "A": "To complicate maintenance",
+      "B": "To allow simple tasks by trained personnel",
+      "C": "To require all tasks by experts",
+      "D": "No purpose"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR 625 – Appendix A – Elementary Work",
+    "explanation": "As per \"CARs for the AME, CAR 625 – Appendix A – Elementary Work, page 1\", the purpose is to allow simple tasks by trained personnel.",
+    "source": "CARs for the AME, CAR 625 – Appendix A – Elementary Work, page 1",
+    "category": "CAR 625 – Appendix A – Elementary Work"
+  },
+  {
+    "id": 31,
+    "question": "In CAR 625 – Appendix B – Approved Maintenance Schedules, what is outlined?",
+    "options": {
+      "A": "Flight schedules",
+      "B": "Maintenance schedules",
+      "C": "Passenger schedules",
+      "D": "No outlines"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR 625 – Appendix B – Approved Maintenance Schedules",
+    "explanation": "As per \"CARs for the AME, CAR 625 – Appendix B – Approved Maintenance Schedules, page 1\", maintenance schedules are outlined.",
+    "source": "CARs for the AME, CAR 625 – Appendix B – Approved Maintenance Schedules, page 1",
+    "category": "CAR 625 – Appendix B – Approved Maintenance Schedules"
+  },
+  {
+    "id": 32,
+    "question": "What must be followed in CAR 625 – Appendix B – Approved Maintenance Schedules?",
+    "options": {
+      "A": "Random schedules",
+      "B": "Approved maintenance schedules",
+      "C": "No schedules",
+      "D": "Pilot choices"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR 625 – Appendix B – Approved Maintenance Schedules",
+    "explanation": "As per \"CARs for the AME, CAR 625 – Appendix B – Approved Maintenance Schedules, page 1\", approved maintenance schedules must be followed.",
+    "source": "CARs for the AME, CAR 625 – Appendix B – Approved Maintenance Schedules, page 1",
+    "category": "CAR 625 – Appendix B – Approved Maintenance Schedules"
+  },
+  {
+    "id": 33,
+    "question": "According to CAR 625 – Appendix B – Approved Maintenance Schedules, what is required for small aircraft?",
+    "options": {
+      "A": "No schedules",
+      "B": "Scheduled inspections",
+      "C": "Daily flights",
+      "D": "Nothing"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR 625 – Appendix B – Approved Maintenance Schedules",
+    "explanation": "As per \"CARs for the AME, CAR 625 – Appendix B – Approved Maintenance Schedules, page 1\", scheduled inspections are required for small aircraft.",
+    "source": "CARs for the AME, CAR 625 – Appendix B – Approved Maintenance Schedules, page 1",
+    "category": "CAR 625 – Appendix B – Approved Maintenance Schedules"
+  },
+  {
+    "id": 34,
+    "question": "What is included in CAR 625 – Appendix B – Approved Maintenance Schedules?",
+    "options": {
+      "A": "Only visual checks",
+      "B": "Inspections and maintenance tasks",
+      "C": "Fuel loading",
+      "D": "No inclusions"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR 625 – Appendix B – Approved Maintenance Schedules",
+    "explanation": "As per \"CARs for the AME, CAR 625 – Appendix B – Approved Maintenance Schedules, page 1\", inspections and maintenance tasks are included.",
+    "source": "CARs for the AME, CAR 625 – Appendix B – Approved Maintenance Schedules, page 1",
+    "category": "CAR 625 – Appendix B – Approved Maintenance Schedules"
+  },
+  {
+    "id": 35,
+    "question": "In CAR 625 – Appendix B – Approved Maintenance Schedules, what must be ensured?",
+    "options": {
+      "A": "Compliance with schedules",
+      "B": "Ignoring schedules",
+      "C": "Random maintenance",
+      "D": "No requirements"
+    },
+    "correctAnswer": "A",
+    "reference": "CAR 625 – Appendix B – Approved Maintenance Schedules",
+    "explanation": "As per \"CARs for the AME, CAR 625 – Appendix B – Approved Maintenance Schedules, page 1\", compliance with schedules must be ensured.",
+    "source": "CARs for the AME, CAR 625 – Appendix B – Approved Maintenance Schedules, page 1",
+    "category": "CAR 625 – Appendix B – Approved Maintenance Schedules"
+  },
+  {
+    "id": 36,
+    "question": "What is the focus of CAR 625 – Appendix B – Approved Maintenance Schedules?",
+    "options": {
+      "A": "Passenger safety",
+      "B": "Maintenance scheduling",
+      "C": "Flight planning",
+      "D": "No focus"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR 625 – Appendix B – Approved Maintenance Schedules",
+    "explanation": "As per \"CARs for the AME, CAR 625 – Appendix B – Approved Maintenance Schedules, page 1\", the focus is on maintenance scheduling.",
+    "source": "CARs for the AME, CAR 625 – Appendix B – Approved Maintenance Schedules, page 1",
+    "category": "CAR 625 – Appendix B – Approved Maintenance Schedules"
+  },
+  {
+    "id": 37,
+    "question": "According to CAR 625 – Appendix B – Approved Maintenance Schedules, what is required for aircraft?",
+    "options": {
+      "A": "No maintenance",
+      "B": "Regular scheduled maintenance",
+      "C": "Optional checks",
+      "D": "Pilot maintenance"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR 625 – Appendix B – Approved Maintenance Schedules",
+    "explanation": "As per \"CARs for the AME, CAR 625 – Appendix B – Approved Maintenance Schedules, page 1\", regular scheduled maintenance is required for aircraft.",
+    "source": "CARs for the AME, CAR 625 – Appendix B – Approved Maintenance Schedules, page 1",
+    "category": "CAR 625 – Appendix B – Approved Maintenance Schedules"
+  },
+  {
+    "id": 38,
+    "question": "What must be documented in CAR 625 – Appendix B – Approved Maintenance Schedules?",
+    "options": {
+      "A": "All flights",
+      "B": "Maintenance activities",
+      "C": "Passenger lists",
+      "D": "Nothing"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR 625 – Appendix B – Approved Maintenance Schedules",
+    "explanation": "As per \"CARs for the AME, CAR 625 – Appendix B – Approved Maintenance Schedules, page 1\", maintenance activities must be documented.",
+    "source": "CARs for the AME, CAR 625 – Appendix B – Approved Maintenance Schedules, page 1",
+    "category": "CAR 625 – Appendix B – Approved Maintenance Schedules"
+  },
+  {
+    "id": 39,
+    "question": "In CAR 625 – Appendix B – Approved Maintenance Schedules, what is emphasized?",
+    "options": {
+      "A": "Flexibility",
+      "B": "Adherence to schedules",
+      "C": "Ignoring rules",
+      "D": "No emphasis"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR 625 – Appendix B – Approved Maintenance Schedules",
+    "explanation": "As per \"CARs for the AME, CAR 625 – Appendix B – Approved Maintenance Schedules, page 1\", adherence to schedules is emphasized.",
+    "source": "CARs for the AME, CAR 625 – Appendix B – Approved Maintenance Schedules, page 1",
+    "category": "CAR 625 – Appendix B – Approved Maintenance Schedules"
+  },
+  {
+    "id": 40,
+    "question": "What is the purpose of CAR 625 – Appendix B – Approved Maintenance Schedules?",
+    "options": {
+      "A": "To delay maintenance",
+      "B": "To ensure timely maintenance",
+      "C": "To allow unsafe operations",
+      "D": "No purpose"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR 625 – Appendix B – Approved Maintenance Schedules",
+    "explanation": "As per \"CARs for the AME, CAR 625 – Appendix B – Approved Maintenance Schedules, page 1\", the purpose is to ensure timely maintenance.",
+    "source": "CARs for the AME, CAR 625 – Appendix B – Approved Maintenance Schedules, page 1",
+    "category": "CAR 625 – Appendix B – Approved Maintenance Schedules"
+  },
+  {
+    "id": 41,
+    "question": "In CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements, what are out of phase tasks?",
+    "options": {
+      "A": "Scheduled tasks",
+      "B": "Tasks performed outside regular schedules",
+      "C": "Daily routines",
+      "D": "No tasks"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements",
+    "explanation": "As per \"CARs for the AME, CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements, page 1\", out of phase tasks are tasks performed outside regular schedules.",
+    "source": "CARs for the AME, CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements, page 1",
+    "category": "CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements"
+  },
+  {
+    "id": 42,
+    "question": "What is required for out of phase tasks in CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements?",
+    "options": {
+      "A": "No requirements",
+      "B": "Documentation and approval",
+      "C": "Random checks",
+      "D": "Pilot discretion"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements",
+    "explanation": "As per \"CARs for the AME, CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements, page 1\", documentation and approval are required for out of phase tasks.",
+    "source": "CARs for the AME, CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements, page 1",
+    "category": "CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements"
+  },
+  {
+    "id": 43,
+    "question": "According to CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements, what must be ensured for equipment?",
+    "options": {
+      "A": "Latest technology",
+      "B": "Compliance with requirements",
+      "C": "Aesthetic appeal",
+      "D": "No requirements"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements",
+    "explanation": "As per \"CARs for the AME, CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements, page 1\", compliance with requirements must be ensured for equipment.",
+    "source": "CARs for the AME, CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements, page 1",
+    "category": "CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements"
+  },
+  {
+    "id": 44,
+    "question": "What is the purpose of CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements?",
+    "options": {
+      "A": "To complicate maintenance",
+      "B": "To handle unscheduled tasks",
+      "C": "To ignore tasks",
+      "D": "No purpose"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements",
+    "explanation": "As per \"CARs for the AME, CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements, page 1\", the purpose is to handle unscheduled tasks.",
+    "source": "CARs for the AME, CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements, page 1",
+    "category": "CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements"
+  },
+  {
+    "id": 45,
+    "question": "In CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements, what must be documented?",
+    "options": {
+      "A": "All flights",
+      "B": "Out of phase tasks",
+      "C": "Weather reports",
+      "D": "Nothing"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements",
+    "explanation": "As per \"CARs for the AME, CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements, page 1\", out of phase tasks must be documented.",
+    "source": "CARs for the AME, CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements, page 1",
+    "category": "CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements"
+  },
+  {
+    "id": 46,
+    "question": "What is required for equipment in CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements?",
+    "options": {
+      "A": "No standards",
+      "B": "Specific requirements",
+      "C": "Optional items",
+      "D": "Pilot choice"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements",
+    "explanation": "As per \"CARs for the AME, CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements, page 1\", specific requirements are required for equipment.",
+    "source": "CARs for the AME, CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements, page 1",
+    "category": "CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements"
+  },
+  {
+    "id": 47,
+    "question": "According to CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements, what must be approved?",
+    "options": {
+      "A": "All tasks",
+      "B": "Out of phase tasks",
+      "C": "Daily tasks",
+      "D": "No approvals"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements",
+    "explanation": "As per \"CARs for the AME, CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements, page 1\", out of phase tasks must be approved.",
+    "source": "CARs for the AME, CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements, page 1",
+    "category": "CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements"
+  },
+  {
+    "id": 48,
+    "question": "What is the scope of CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements?",
+    "options": {
+      "A": "Only scheduled tasks",
+      "B": "Unscheduled tasks and equipment",
+      "C": "Passenger services",
+      "D": "No scope"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements",
+    "explanation": "As per \"CARs for the AME, CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements, page 1\", the scope is unscheduled tasks and equipment.",
+    "source": "CARs for the AME, CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements, page 1",
+    "category": "CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements"
+  },
+  {
+    "id": 49,
+    "question": "In CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements, what must be ensured for tasks?",
+    "options": {
+      "A": "Speed",
+      "B": "Safety and compliance",
+      "C": "Cost savings",
+      "D": "No requirements"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements",
+    "explanation": "As per \"CARs for the AME, CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements, page 1\", safety and compliance must be ensured for tasks.",
+    "source": "CARs for the AME, CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements, page 1",
+    "category": "CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements"
+  },
+  {
+    "id": 50,
+    "question": "What is emphasized in CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements?",
+    "options": {
+      "A": "Flexibility",
+      "B": "Proper handling of exceptions",
+      "C": "Ignoring exceptions",
+      "D": "No emphasis"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements",
+    "explanation": "As per \"CARs for the AME, CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements, page 1\", proper handling of exceptions is emphasized.",
+    "source": "CARs for the AME, CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements, page 1",
+    "category": "CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements"
+  },
+  {
+    "id": 51,
+    "question": "According to CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements, what must be maintained?",
+    "options": {
+      "A": "Records only",
+      "B": "Equipment standards",
+      "C": "Passenger comfort",
+      "D": "Nothing"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements",
+    "explanation": "As per \"CARs for the AME, CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements, page 1\", equipment standards must be maintained.",
+    "source": "CARs for the AME, CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements, page 1",
+    "category": "CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements"
+  },
+  {
+    "id": 52,
+    "question": "What is required for tasks in CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements?",
+    "options": {
+      "A": "No oversight",
+      "B": "Approval and documentation",
+      "C": "Random execution",
+      "D": "Pilot approval"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements",
+    "explanation": "As per \"CARs for the AME, CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements, page 1\", approval and documentation are required for tasks.",
+    "source": "CARs for the AME, CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements, page 1",
+    "category": "CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements"
+  },
+  {
+    "id": 53,
+    "question": "In CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements, what must be complied with?",
+    "options": {
+      "A": "Local rules",
+      "B": "Specified requirements",
+      "C": "Company policies",
+      "D": "No compliance"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements",
+    "explanation": "As per \"CARs for the AME, CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements, page 1\", specified requirements must be complied with.",
+    "source": "CARs for the AME, CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements, page 1",
+    "category": "CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements"
+  },
+  {
+    "id": 54,
+    "question": "What is the focus of CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements?",
+    "options": {
+      "A": "Scheduled maintenance",
+      "B": "Exceptional tasks",
+      "C": "Flight operations",
+      "D": "No focus"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements",
+    "explanation": "As per \"CARs for the AME, CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements, page 1\", the focus is on exceptional tasks.",
+    "source": "CARs for the AME, CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements, page 1",
+    "category": "CAR 625 – Appendix C – Out of Phase Tasks and Equipment Requirements"
+  },
+  {
+    "id": 55,
+    "question": "In CAR 625 – Appendix D – Operator’s Approved Maintenance Schedule, what is outlined?",
+    "options": {
+      "A": "Flight schedules",
+      "B": "Operator’s maintenance schedule",
+      "C": "Passenger schedules",
+      "D": "No outlines"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR 625 – Appendix D – Operator’s Approved Maintenance Schedule",
+    "explanation": "As per \"CARs for the AME, CAR 625 – Appendix D – Operator’s Approved Maintenance Schedule, page 1\", the operator’s maintenance schedule is outlined.",
+    "source": "CARs for the AME, CAR 625 – Appendix D – Operator’s Approved Maintenance Schedule, page 1",
+    "category": "CAR 625 – Appendix D – Operator’s Approved Maintenance Schedule"
+  },
+  {
+    "id": 56,
+    "question": "What must be followed in CAR 625 – Appendix D – Operator’s Approved Maintenance Schedule?",
+    "options": {
+      "A": "Random schedules",
+      "B": "Approved operator schedules",
+      "C": "No schedules",
+      "D": "Pilot choices"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR 625 – Appendix D – Operator’s Approved Maintenance Schedule",
+    "explanation": "As per \"CARs for the AME, CAR 625 – Appendix D – Operator’s Approved Maintenance Schedule, page 1\", approved operator schedules must be followed.",
+    "source": "CARs for the AME, CAR 625 – Appendix D – Operator’s Approved Maintenance Schedule, page 1",
+    "category": "CAR 625 – Appendix D – Operator’s Approved Maintenance Schedule"
+  },
+  {
+    "id": 57,
+    "question": "According to CAR 625 – Appendix D – Operator’s Approved Maintenance Schedule, what is required?",
+    "options": {
+      "A": "No requirements",
+      "B": "Adherence to schedule",
+      "C": "Optional checks",
+      "D": "Passenger input"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR 625 – Appendix D – Operator’s Approved Maintenance Schedule",
+    "explanation": "As per \"CARs for the AME, CAR 625 – Appendix D – Operator’s Approved Maintenance Schedule, page 1\", adherence to schedule is required.",
+    "source": "CARs for the AME, CAR 625 – Appendix D – Operator’s Approved Maintenance Schedule, page 1",
+    "category": "CAR 625 – Appendix D – Operator’s Approved Maintenance Schedule"
+  },
+  {
+    "id": 58,
+    "question": "What is the purpose of CAR 625 – Appendix D – Operator’s Approved Maintenance Schedule?",
+    "options": {
+      "A": "To complicate operations",
+      "B": "To ensure operator compliance",
+      "C": "To allow unsafe practices",
+      "D": "No purpose"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR 625 – Appendix D – Operator’s Approved Maintenance Schedule",
+    "explanation": "As per \"CARs for the AME, CAR 625 – Appendix D – Operator’s Approved Maintenance Schedule, page 1\", the purpose is to ensure operator compliance.",
+    "source": "CARs for the AME, CAR 625 – Appendix D – Operator’s Approved Maintenance Schedule, page 1",
+    "category": "CAR 625 – Appendix D – Operator’s Approved Maintenance Schedule"
+  },
+  {
+    "id": 59,
+    "question": "In CAR 625 – Appendices of Equipment and Maintenance Standards, what is summarized?",
+    "options": {
+      "A": "Flight data",
+      "B": "Equipment and maintenance standards",
+      "C": "Passenger services",
+      "D": "No summary"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR 625 – Appendices of Equipment and Maintenance Standards",
+    "explanation": "As per \"CARs for the AME, CAR 625 – Appendices of Equipment and Maintenance Standards, page 1\", equipment and maintenance standards are summarized.",
+    "source": "CARs for the AME, CAR 625 – Appendices of Equipment and Maintenance Standards, page 1",
+    "category": "CAR 625 – Appendices of Equipment and Maintenance Standards"
+  },
+  {
+    "id": 60,
+    "question": "What is the focus of CAR 625 – Appendices of Equipment and Maintenance Standards?",
+    "options": {
+      "A": "Operational procedures",
+      "B": "Standards overview",
+      "C": "Flight planning",
+      "D": "No focus"
+    },
+    "correctAnswer": "B",
+    "reference": "CAR 625 – Appendices of Equipment and Maintenance Standards",
+    "explanation": "As per \"CARs for the AME, CAR 625 – Appendices of Equipment and Maintenance Standards, page 1\", the focus is on standards overview.",
+    "source": "CARs for the AME, CAR 625 – Appendices of Equipment and Maintenance Standards, page 1",
+    "category": "CAR 625 – Appendices of Equipment and Maintenance Standards"
+  }
+]
