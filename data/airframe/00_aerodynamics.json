@@ -1,0 +1,13 @@
+ [
+  {
+  "qid": "AF-0012",
+  "examCode": "AF",
+  "topicCode": "13.1",
+  "topicTitle": "Mechanical/servo powered flight controls - Theory and application",
+  "question": "Which statement best describes a servo-powered flight control system?",
+  "options": { "A":"...", "B":"...", "C":"...", "D":"..." },
+  "correctAnswer": "B",
+  "reference": "TP 14038-E AF 13.1",
+  "explanation": "..."
+}
+] 

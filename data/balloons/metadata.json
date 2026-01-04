@@ -1,0 +1,19 @@
+{
+  "moduleId": "balloons",
+  "moduleTitle": "Balloons – Licence B",
+  "moduleDescription": "Hot air balloon regulations, operations, maintenance practices and BREGS requirements.",
+  "submodules": [
+    {
+      "id": "balloons_regs",
+      "folder": "",
+      "name": "Balloon Regulations",
+      "sets": [
+        {
+          "id": "b01",
+          "name": "01 – Balloon Regulations & Procedures",
+          "file": "01_balloon_regs.json"
+        }
+      ]
+    }
+  ]
+}

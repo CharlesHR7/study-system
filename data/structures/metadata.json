@@ -1,0 +1,174 @@
+{
+  "module": "structures",
+  "moduleTitle": "Structures – S",
+  "moduleDescription": "Standard practices, structural repairs and related systems for the AME Structures (S) licence.",
+  "submodules": [
+    {
+      "id": "structures_s",
+      "name": "Structures – Licence S",
+      "folder": "",
+      "sets": [
+        {
+          "id": "stS01",
+          "name": "01 – Standard Practices (Structures)",
+          "shortTitle": "Std practices",
+          "subtitle": "Standard practices specific to the Structures licence.",
+          "file": "standardPractices/01_standard_practices.json",
+          "weight": 1
+        },
+        {
+          "id": "stS02",
+          "name": "02 – Aerodynamics & Structural Loads",
+          "shortTitle": "Aero/Loads",
+          "subtitle": "Basic aerodynamics for structures and structural load paths.",
+          "file": "standardPractices/02_aerodynamics_structures.json",
+          "weight": 1
+        },
+        {
+          "id": "stS03",
+          "name": "03 – Math & Physics (Structures)",
+          "shortTitle": "Math/Physics",
+          "subtitle": "Math and physics topics applied to structural work.",
+          "file": "standardPractices/03_math_physics.json",
+          "weight": 1
+        },
+        {
+          "id": "stS04",
+          "name": "04 – Hardware & Materials",
+          "shortTitle": "Hardware",
+          "subtitle": "Fasteners, materials and structural hardware selection.",
+          "file": "standardPractices/04_hardware.json",
+          "weight": 1
+        },
+        {
+          "id": "stS05",
+          "name": "05 – Drawings & Structural Diagrams",
+          "shortTitle": "Drawings",
+          "subtitle": "Reading structural drawings, repair schemes and diagrams.",
+          "file": "standardPractices/05_drawings.json",
+          "weight": 1
+        },
+        {
+          "id": "stS06",
+          "name": "06 – Weight & Balance (Structures)",
+          "shortTitle": "Wt & Balance",
+          "subtitle": "Weight & balance considerations for structural repairs.",
+          "file": "standardPractices/06_weight_balance.json",
+          "weight": 1
+        },
+        {
+          "id": "stS07",
+          "name": "07 – Corrosion & Metallurgy",
+          "shortTitle": "Corrosion/Met",
+          "subtitle": "Corrosion mechanisms, metallurgy basics and treatments.",
+          "file": "standardPractices/07_corrosion_metalurgy.json",
+          "weight": 1
+        },
+        {
+          "id": "stS08",
+          "name": "08 – NDT (Standard Practices)",
+          "shortTitle": "NDT (SP)",
+          "subtitle": "Non-destructive testing techniques used in structures.",
+          "file": "standardPractices/08_ndt.json",
+          "weight": 1
+        },
+        {
+          "id": "stS09",
+          "name": "09 – Servicing & General Practices",
+          "shortTitle": "Servicing",
+          "subtitle": "Servicing and general maintenance practices for structures.",
+          "file": "standardPractices/09_servicing.json",
+          "weight": 1
+        },
+        {
+          "id": "stS10",
+          "name": "10 – Tools & Measuring Devices",
+          "shortTitle": "Tools",
+          "subtitle": "Hand tools, special tools and measuring devices for structural work.",
+          "file": "standardPractices/10_tools.json",
+          "weight": 1
+        },
+        {
+          "id": "stS11",
+          "name": "11 – Basic Structural Concepts",
+          "shortTitle": "Basic struct.",
+          "subtitle": "Basic structural members, load paths and repair zones.",
+          "file": "standardPractices/11_basic_structures.json",
+          "weight": 1
+        },
+        {
+          "id": "stS12",
+          "name": "12 – Maintenance Procedures",
+          "shortTitle": "Procedures",
+          "subtitle": "Structural maintenance procedures, approvals and paperwork.",
+          "file": "standardPractices/12_maintenance_procedures.json",
+          "weight": 1
+        },
+        {
+          "id": "stS13",
+          "name": "13 – Sheet Metal Structures",
+          "shortTitle": "Sheet metal",
+          "subtitle": "Sheet metal construction, repairs and best practices.",
+          "file": "systems/13_sheet_metal.json",
+          "weight": 1
+        },
+        {
+          "id": "stS14",
+          "name": "14 – Tubular Structures",
+          "shortTitle": "Tubular",
+          "subtitle": "Tubular structures, welding and repair considerations.",
+          "file": "systems/14_tubular.json",
+          "weight": 1
+        },
+        {
+          "id": "stS15",
+          "name": "15 – Wood & Fabric Structures",
+          "shortTitle": "Wood/Fabric",
+          "subtitle": "Wood and fabric structural construction and repair.",
+          "file": "systems/15_wood_fabric.json",
+          "weight": 1
+        },
+        {
+          "id": "stS16",
+          "name": "16 – Composite Structures",
+          "shortTitle": "Composites",
+          "subtitle": "Composite structural repairs, materials and safety.",
+          "file": "systems/16_composites.json",
+          "weight": 1
+        },
+        {
+          "id": "stS17",
+          "name": "17 – Corrosion (Systems)",
+          "shortTitle": "Corrosion (Sys)",
+          "subtitle": "Corrosion specific to structural systems and repairs.",
+          "file": "systems/17_corrosion.json",
+          "weight": 1
+        },
+        {
+          "id": "stS18",
+          "name": "18 – NDT (Structures Systems)",
+          "shortTitle": "NDT (Sys)",
+          "subtitle": "Application of NDT methods to structural systems.",
+          "file": "systems/18_ndt.json",
+          "weight": 1
+        },
+        {
+          "id": "stS19",
+          "name": "19 – Fluid Lines & Fittings",
+          "shortTitle": "Fluid lines",
+          "subtitle": "Fluid lines, fittings and routing in structural areas.",
+          "file": "systems/19_fluid_lines.json",
+          "weight": 1
+        },
+        {
+          "id": "stS20",
+          "name": "20 – Thermoplastics & Transparencies",
+          "shortTitle": "Thermoplastics",
+          "subtitle": "Thermoplastic materials, transparencies and repair methods.",
+          "file": "systems/20_thermoplastics.json",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

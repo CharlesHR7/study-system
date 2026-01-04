@@ -1,0 +1,86 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Logbook {
+  id         String   @id @default(cuid())
+  licenceKey String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  signatories           Signatory[]
+  taskSignatureRequests TaskSignatureRequest[] // ✅ opposite relation
+  auditEvents           AuditEvent[] // ✅ opposite relation
+}
+
+model Signatory {
+  id            String   @id @default(cuid())
+  logbookId     String
+  slotNumber    Int // 1..15
+  name          String   @default("")
+  email         String   @default("")
+  licenceNumber String   @default("")
+  initials      String   @default("")
+  dateSigned    String   @default("") // yyyy-mm-dd (campo da TC)
+  status        String   @default("DRAFT") // DRAFT | PENDING | VERIFIED
+  signatureSvg  String   @default("") // ✅ SVG salvo
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  logbook Logbook @relation(fields: [logbookId], references: [id], onDelete: Cascade)
+
+  verificationRequests  SignatoryVerificationRequest[] // ✅ opposite relation
+  taskSignatureRequests TaskSignatureRequest[] // ✅ opposite relation
+
+  @@unique([logbookId, slotNumber])
+}
+
+model SignatoryVerificationRequest {
+  id          String   @id @default(cuid())
+  signatoryId String
+  token       String   @unique
+  status      String   @default("SENT") // SENT | USED | EXPIRED
+  expiresAt   DateTime
+  createdAt   DateTime @default(now())
+
+  signatory Signatory @relation(fields: [signatoryId], references: [id], onDelete: Cascade)
+
+  @@index([signatoryId])
+}
+
+model TaskSignatureRequest {
+  id          String @id @default(cuid())
+  logbookId   String
+  signatoryId String
+
+  // o que será assinado (você pode guardar como JSON string por enquanto)
+  payloadJson String @default("") // ex: [{rowIndex, ata, taskText, ...}]
+
+  token     String   @unique
+  status    String   @default("SENT") // SENT | APPROVED | DECLINED | EXPIRED
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  logbook   Logbook   @relation(fields: [logbookId], references: [id], onDelete: Cascade)
+  signatory Signatory @relation(fields: [signatoryId], references: [id], onDelete: Cascade)
+
+  @@index([logbookId])
+  @@index([signatoryId])
+}
+
+model AuditEvent {
+  id        String   @id @default(cuid())
+  logbookId String
+  type      String // ex: "SIGNATORY_VERIFY_SENT", "SIGNATORY_VERIFIED", "TASK_SIGN_REQUESTED", etc
+  message   String   @default("")
+  createdAt DateTime @default(now())
+
+  logbook Logbook @relation(fields: [logbookId], references: [id], onDelete: Cascade)
+
+  @@index([logbookId])
+}

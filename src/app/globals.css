@@ -112,11 +112,58 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+/* ✅ base */
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+  html,
+  body {
+    height: 100%;
+  }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* ✅ helpers */
+.screen-only {
+  display: block;
+}
+.print-only {
+  display: none;
+}
+
+/* ✅ scroll invisível (para o “scroll invisível” do card) */
+.scrollbar-none {
+  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+/* ✅ PRINT (corrigido: agora está tudo dentro do @media) */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+
+  @page {
+    margin: 10mm;
+  }
+
+  table {
+    page-break-inside: auto;
+  }
+  tr {
+    page-break-inside: avoid;
+    page-break-after: auto;
+  }
+  thead {
+    display: table-header-group;
   }
 }

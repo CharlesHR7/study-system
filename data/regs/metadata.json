@@ -1,0 +1,22 @@
+{
+  "module": "regs",
+  "moduleTitle": "Regulatory Requirements – REGS / BREGS",
+  "moduleDescription": "Regulatory requirements for M, E, S and B licences, including CARs and associated standards used in the REGS/BREGS exams.",
+  "submodules": [
+    {
+      "id": "regs_main",
+      "name": "REGS – Regulatory Requirements",
+      "folder": "",
+      "sets": [
+        {
+          "id": "regs01",
+          "name": "01 – Regulatory Requirements (CARs & Standards)",
+          "shortTitle": "REGS",
+          "subtitle": "CARs Parts 1–6 and related standards (7–17) consolidated for the REGS/BREGS exams.",
+          "file": "regs.json",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

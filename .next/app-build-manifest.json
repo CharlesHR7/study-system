@@ -11,6 +11,61 @@
       "static/chunks/main-app.js",
       "static/chunks/app/page.js"
     ],
+    "/study/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/study/page.js"
+    ],
+    "/m1m2/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/m1m2/layout.js"
+    ],
+    "/m1m2/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/m1m2/page.js"
+    ],
+    "/m1m2/regs/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/m1m2/regs/layout.js"
+    ],
+    "/m1m2/regs/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/m1m2/regs/page.js"
+    ],
+    "/avionics/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/avionics/layout.js"
+    ],
+    "/avionics/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/avionics/page.js"
+    ],
+    "/structures/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/structures/layout.js"
+    ],
+    "/structures/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/structures/page.js"
+    ],
+    "/balloons/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/balloons/layout.js"
+    ],
+    "/balloons/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/balloons/page.js"
+    ],
     "/_not-found/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",

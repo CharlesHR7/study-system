@@ -1,0 +1,38 @@
+{
+  "module": "avionics",
+  "submodules": [
+    {
+      "id": "avionics_sp",
+      "name": "Standard Practices Avionics",
+      "folder": "standardPractices",
+      "sets": [
+        { "id": "01_scienceMath",      "name": "Science & Math",              "file": "01_scienceMath.json" },
+        { "id": "02_wiringPractices",  "name": "Wiring Practices",            "file": "02_wiringPractices.json" },
+        { "id": "03_hardware",         "name": "Hardware",                    "file": "03_hardware.json" },
+        { "id": "04_tools",            "name": "Tools & Measuring Devices",   "file": "04_tools.json" },
+        { "id": "05_basicSystems",     "name": "Basic Aircraft Systems",      "file": "05_basicSystems.json" },
+        { "id": "06_basicElectricity", "name": "Basic Electricity",           "file": "06_basicElectricity.json" },
+        { "id": "07_basicElectronics", "name": "Basic Electronics",           "file": "07_basicElectronics.json" },
+        { "id": "08_corrosion",        "name": "Corrosion & Prevention",      "file": "08_corrosion.json" }
+      ]
+    },
+    {
+      "id": "avionics_sys",
+      "name": "Avionics Systems & Theory",
+      "folder": "systems",
+      "sets": [
+        { "id": "01_communication",    "name": "Communication",               "file": "01_communication.json" },
+        { "id": "02_navigation",       "name": "Navigation",                  "file": "02_navigation.json" },
+        { "id": "03_surveillance",     "name": "Surveillance / Radar / XPDR", "file": "03_surveillance.json" },
+        { "id": "04_autopilot",        "name": "Autopilot & Flight Director", "file": "04_autopilot.json" },
+        { "id": "05_instruments",      "name": "Instruments & EFIS",          "file": "05_instruments.json" },
+        { "id": "06_powerDistribution","name": "Power Generation & Buses",    "file": "06_powerDistribution.json" },
+        { "id": "07_digitalSystems",   "name": "Digital Systems",             "file": "07_digitalSystems.json" },
+        { "id": "08_dataBuses",        "name": "Data Buses",                  "file": "08_dataBuses.json" },
+        { "id": "09_environmental",    "name": "Environmental Systems",       "file": "09_environmental.json" },
+        { "id": "10_flightDeckDisplays","name": "Flight Deck Displays",       "file": "10_flightDeckDisplays.json" },
+        { "id": "11_troubleshooting",  "name": "Troubleshooting & BITE",      "file": "11_troubleshooting.json" }
+      ]
+    }
+  ]
+}

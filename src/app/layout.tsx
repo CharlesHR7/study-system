@@ -5,8 +5,8 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Study System - CARs Quiz App',
-  description: 'Upload questions and start studying with practice and test modes',
+  title: 'AME ONE',
+  description: 'Aircraft Maintenance Engineer Study Platform',
 }
 
 export default function RootLayout({
